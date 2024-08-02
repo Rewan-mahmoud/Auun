@@ -1,0 +1,75 @@
+.footer {
+    background-color: #2b104e;
+    color: white;
+    padding: 20px 0;
+    padding-top: 30px;
+    font-family: "Cairo", sans-serif !important;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+  }
+  
+  .footer-column {
+    flex: 1;
+    padding: 20px;
+    min-width: 250px;
+    max-width: 300px;
+  }
+  
+  .footer-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #ffffff;
+  }
+  
+  .footer-column p {
+    margin: 15px 0;
+    font-size: 1em;
+    cursor: pointer;
+    color: #d1c7d4;
+  }
+  
+  .footer-logo {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .footer-slogan {
+    font-size: 0.9em;
+    color: #d1c7d4;
+  }
+  
+  .social-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .social-icons i {
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    border-top: 1px solid #d1c7d4;
+    font-size: 0.8em;
+    color: #d1c7d4;
+
+  }
+
+  .footer svg {
+    font-size: 20px;
+    margin-left: 12px;
+  } 
+   .footer-bottom p {
+    font-size: 22px;
+    margin-top: 26px;
+  }

@@ -1,0 +1,41 @@
+.slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #4a5568; /* Equivalent to text-gray-700 */
+    padding: 70px 0px;
+}
+
+.slider-container {
+    width: 80%;
+    max-width: 1200px;
+}
+
+.slick-slide img {
+    margin: auto;
+}
+
+.slick-prev,
+.slick-next {
+    color: #6b46c1; /* Equivalent to text-purple-700 */
+}
+
+.slick-dots li button:before {
+    color: #6b46c1; /* Equivalent to bg-purple-700 */
+}
+
+.slide-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.slick-prev::before, .slick-next::before {
+    font-size: 30px; /* Adjust the size of the arrows */
+}
+
+.slick-dots li.slick-active button:before {
+    color: #4a5568; /* Change the active dot color */
+}

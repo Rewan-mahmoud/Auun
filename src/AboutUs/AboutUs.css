@@ -1,0 +1,39 @@
+.service-section {
+    text-align: right; /* Align text to the right for Arabic */
+    padding: 20px;
+  }
+  
+  .service-title {
+    color: #3a2e76; /* Dark purple color */
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+  
+  .service-description {
+    font-size: 18px;
+    color: #5D5F5D;
+    margin-bottom: 20px;
+  }
+  
+  .service-image img {
+   width: 429px;
+    height: 429px;
+  }
+  .details{
+    width: 581px;
+    padding: 140px 0px;
+line-height: 45.53px;
+font-size: 24px;
+font-weight: 400;
+color: #000000;
+  }
+  .img3 img{
+    width: 100%;
+  
+}
+.certificate img 
+{
+    margin: 50px 0px;
+
+}

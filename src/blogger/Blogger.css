@@ -1,0 +1,14 @@
+.overlayy-text {
+     position: absolute;
+    top: 65%;
+    /* left: 40%; */
+    /* color: bisque; */
+    transform: translate(-69%, -50%);
+    /* padding: 20px; */
+
+}
+.overlayy-text h1 {
+    color: #311356 !important;
+    font-size: 64px !important;
+    font-weight: 700;
+}

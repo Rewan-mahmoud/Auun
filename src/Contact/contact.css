@@ -1,0 +1,297 @@
+.ContactUs {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.image-container {
+    position: relative;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+}
+
+.titles {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.titles h1 {
+    font-size: 2.5em;
+    padding: 10px;
+}
+.titles p {
+    font-size: 30px;
+}
+.contact-container {
+    width: 281px;
+    height: 234px;
+    border: 3px solid #1C75B8;
+    border-radius: 20px;
+    text-align: center;
+    background-color: #ffffff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    position: relative;
+}
+
+.contact-icon img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.contact-info h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333; /* Adjust text color */
+}
+
+.contact-info p {
+    font-size: 1.2em;
+    color: #555; /* Adjust text color */
+}
+
+.contact-container::before,
+.contact-container::after {
+    content: "";
+    position: absolute;
+    /* border: 5px solid #007bff; */
+    border-radius: 20px;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    z-index: -1;
+}
+
+.contactButton{
+    width: 20%;
+}
+/* .ContactUs .mapContainer input , textarea{
+border:2px solid #1C75B8 !important;
+} */
+.ContactUs {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    z-index: 1; /* Ensure the overlay is above the image */
+}
+
+.titles {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 2; /* Ensure the text is above the overlay */
+}
+
+.titles h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    font-weight: 700;
+}
+
+.titles p {
+    font-size: 2rem;
+    margin-top: 10px;
+     font-weight: 700;
+
+}
+.ContactUs {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.image-container img {
+    width:100%;
+    height: 605px;
+    
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: -98px;
+    left: 1;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Ensure the overlay is above the image */
+}
+
+.titles {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 2; /* Ensure the text is above the overlay */
+}
+
+.titles h1 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.titles p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+.form-container {
+    height:auto;
+    margin: auto;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+  }
+  
+  .form-group {
+    margin-bottom: 27px;
+
+  }
+
+.contact  label {
+    display: block;
+    margin-bottom: 15px;
+    padding-right: 12px;
+    font-weight: bold;
+    color: #828282;
+  }
+  
+  .input-group {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  
+.contact input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 11px;
+    border: 1px solid #ccc !important;
+    appearance: none; /* Remove default browser styling (e.g., dropdown arrow) */
+  }
+  
+
+  .icon {
+    position: absolute;
+    right: 10px;
+    color: #777;
+  }
+  
+
+  
+ 
+.vector{
+    width: 537px;
+    height: 400.05px;
+
+}  
+ .contact button {
+    width: 50%;
+    padding: 10px;
+    background-color: #311356;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 auto; /* Center the button */
+    display: block; /* Required for margin: auto to center */
+  }
+  
+  button:hover {
+    background-color: #3b3b7c;
+  }
+  input:focus, select:focus, textarea:focus {
+    border-color: #311356 ; 
+  }
+  .phone-contact {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 400px; /* Adjust as needed */
+    padding: 20px;
+    border: 1px solid #ccc; 
+    border-radius: 8px;
+    background-color: #f9f9f9; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  }
+  
+  .phone-info h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #311356; /* Dark purple for the title */
+  }
+  
+  .phone-info p {
+    font-size: 1em;
+    margin: 0;
+    color: #555; /* Slightly darker gray for the phone number */
+  }
+  
+  .phone-icon img {
+    width: 40px; /* Adjust as needed */
+    height: auto;
+  }
+  
+  .phone-contact:hover {
+    border-color: #311356; /* Change border color on hover */
+  }
+  .map iframe{
+    width: 1240px !important;
+    height: 500px;
+    border-radius: 10px;
+  }
+  .title{
+    margin: 40px 0px;
+    font-weight: 700;
+    color: #533E79;
+  }
+  .info{
+    padding: 40px 0px;
+    
+  }
+  .pricebutton{
+    width: 17% !important;
+
+  }
