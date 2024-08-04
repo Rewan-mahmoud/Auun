@@ -2,7 +2,7 @@ import React from 'react';
 import './Footer.css'; // Import the CSS file
 import footer from "../assest/footer.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInstagram, faFacebookF, faXTwitter ,faWhatsapp} from '@fortawesome/free-brands-svg-icons';
+import { faInstagram, faFacebookF, faXTwitter ,faWhatsapp  } from '@fortawesome/free-brands-svg-icons';
 import { faLocationDot, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 
