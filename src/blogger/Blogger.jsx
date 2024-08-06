@@ -1,11 +1,14 @@
 import React from 'react';
 import './Blogger.css';
-import group from "../assest/7.jpg";
+import group from "../assest/8.png";
 import imgCard from "../assest/cardimg.jpeg";
 import circle from "../assest/Ellipse 1.svg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import Card from '../Cards/CardContainer';
+import email from '../assest/Component 53.svg';
+import whatsapp from '../assest/Component 54.svg';
+import call from '../assest/Component 55.svg';
 
 const Blogger = () => {
   const cardData = [
@@ -102,6 +105,11 @@ const Blogger = () => {
           ))}
         </div>
       </div>
+      <div class="fixed-icons">
+    <img src={email} alt="Email" class="icon icon1" />
+    <img src={call} alt="Phone" class="icon " />
+    <img src={whatsapp} alt="WhatsApp" class="icon icon2" />
+</div>
     </>
   );
 };

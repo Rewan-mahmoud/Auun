@@ -1,63 +1,79 @@
-
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #FCF9FF;
-    padding: 10px 20px;
-    height: 120px;
-    font-family: "Cairo", sans-serif !important;
-    border-radius: 16px;
-  }
-  
-  .navbar-left,
-  .navbar-center,
-  .navbar-right {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo {
-    height: 81.09px;
-    width: 68px;
-    margin-right: 10px;
-  }
-  .logo2 {
-    width: 114px;
-    height: 50px;
-  }
-  
-  .navbar-center {
-    flex-grow: 1;
-    justify-content: center;
-  }
-  
-  .nav-link {
-    color: #311356;
-    text-decoration: none;
-    margin: 0 35px;
-    font-size: 16px;
-    transition: color 0.3s;
-  }
-  
-  .nav-link:hover {
-    color: #00bfff;
-  }
-  
-  .price-button {
-    background-color: #FCF9FF;
-    color: #311356;
-    margin-right: 30px;
-    border: 1px solid #311356 !important;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .price-button:hover {
-    background-color: #4620a3;
-    color: white;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FCF9FF;
+  padding: 10px 20px;
+  height: 120px;
+  font-family: "Cairo", sans-serif !important;
+  position: fixed; /* Make the navbar fixed */
+  top: 0; /* Position it at the top of the page */
+  width: 100%; /* Make it span the full width of the page */
+  z-index: 1000; /* Ensure it is on top of other elements */
+  transition: height 0.3s ease; /* Add transition for smooth height change */
+}
+
+.navbar.scrolled {
+  height: 100px; /* Adjust this value to the desired height when scrolled */
+}
+
+.navbar-left,
+.navbar-center,
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 81.09px;
+  width: 68px;
+  margin-right: 10px;
+}
+.navbar-right{
+  margin-left: 70px;
+
+}
+.logo2 {
+  width: 114px;
+  height: 50px;
+}
+
+.navbar-center {
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.nav-link {
+  color: #311356 !important;
+  text-decoration: none;
+  margin: 0 35px;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #00bfff;
+}
+
+.price-button {
+  background-color: #FCF9FF;
+  color: #311356;
+  margin-right: 30px;
+  border: 1px solid #311356 !important;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.price-button:hover {
+  background-color: #4620a3;
+  color: white;
+}
+
+.nav-link.active {
+  color: #4620a3; /* Change this to the desired active link color */
+  font-weight: bold; /* Add any additional styling for the active link */
+}
+

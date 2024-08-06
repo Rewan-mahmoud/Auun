@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
+import email from '../assest/Component 53.svg';
+import whatsapp from '../assest/Component 54.svg';
+import call from '../assest/Component 55.svg';
 
 const Card = ({ imgSrc, circleSrc, title, date, text }) => (
   <div className="BloggerCard">
@@ -20,6 +23,11 @@ const Card = ({ imgSrc, circleSrc, title, date, text }) => (
       <p className="card-text mt-3">{text}</p>
       <FontAwesomeIcon className="arrow-icon" icon={faArrowLeft} />
     </div>
+    <div class="fixed-icons">
+    <img src={email} alt="Email" class="icon icon1" />
+    <img src={call} alt="Phone" class="icon " />
+    <img src={whatsapp} alt="WhatsApp" class="icon icon2" />
+</div>
   </div>
 );
 

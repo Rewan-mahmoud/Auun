@@ -1,6 +1,10 @@
 import React from 'react';
 import './Services.css';
+import email from '../assest/Component 53.svg';
+import whatsapp from '../assest/Component 54.svg';
+import call from '../assest/Component 55.svg';
 
+import { Link } from 'react-router-dom';
 const Services = () => {
   const cardData = [
     {
@@ -47,8 +51,8 @@ const Services = () => {
   ];
 
   return (
- <>
- <h1 className='title text-center'>خدماتنا</h1>
+ <div div className='Services'>
+ <h1 className='title serviceTitle text-center'>خدماتنا</h1>
  <p className='text-center mb-5'>نظرا لرغبتنا فى تقديم خدمات متكامله لعملائنا وتوحيد منصه تقديم الخدمات لعملائنا نقوم بالتعاون مع شركائنا بتقديم الخدمات التاليه</p>
  <div className="card-grid">
     
@@ -56,13 +60,18 @@ const Services = () => {
       <div className="card" key={index}>
         <h3 className="card-title">{card.title}</h3>
         <p className="card-description">{card.description}</p>
-        <button className="card-button">{card.buttonText}</button>
+       <Link to="/SubServices"> <button  className="card-button">{card.buttonText}</button></Link>
+ 
       </div>
     ))}
- 
+   <div class="fixed-icons">
+    <img src={email} alt="Email" class="icon icon1" />
+    <img src={call} alt="Phone" class="icon " />
+    <img src={whatsapp} alt="WhatsApp" class="icon icon2" />
+</div>
   </div>
 
- </>
+ </div>
  
   );
 };

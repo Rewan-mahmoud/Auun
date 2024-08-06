@@ -10,6 +10,10 @@ import mail from '../assest/2.png';
 import location from '../assest/1.png';
 import gif from '../assest/CC5l.gif';
 import group from '../assest/Group 295 (1).png';
+import email from '../assest/Component 53.svg';
+import whatsapp from '../assest/Component 54.svg';
+import call from '../assest/Component 55.svg';
+
 import layer from '../assest/Rectangle 219 (1).png';
 
 const Home = () => {
@@ -116,7 +120,9 @@ const Home = () => {
                 </div>
             ))}
         </div>
+ 
         <div className="contact">
+
  
       <div className="container">
       <h1 className='title'>أرسل رسائلك عبر هذا النموذج</h1>
@@ -235,8 +241,15 @@ const Home = () => {
 </div>
    
   </div>
+  <div class="fixed-icons">
+    <img src={email} alt="Email" class="icon icon1" />
+    <img src={call} alt="Phone" class="icon " />
+    <img src={whatsapp} alt="WhatsApp" class="icon icon2" />
+</div>
 
-     
+
+
+
 </>
   );
 };

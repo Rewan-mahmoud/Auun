@@ -5,6 +5,9 @@ import vector from '../assest/profile avatar.png';
 import phone from '../assest/3.png';
 import mail from '../assest/2.png';
 import location from '../assest/1.png';
+import email from '../assest/Component 53.svg';
+import whatsapp from '../assest/Component 54.svg';
+import call from '../assest/Component 55.svg';
 
 import './contact.css';
 
@@ -141,7 +144,11 @@ const Contact = () => {
           title="Saudi Arabia Map"
       ></iframe>
   </div>
-     
+  <div class="fixed-icons">
+    <img src={email} alt="Email" class="icon icon1" />
+    <img src={call} alt="Phone" class="icon " />
+    <img src={whatsapp} alt="WhatsApp" class="icon icon2" />
+</div>
     </div>
     
         

@@ -3,6 +3,9 @@ import img2 from "../assest/pngegg 1.png"
 import img3 from "../assest/Group 1000007035.png"
 import img4 from "../assest/image 1.png"
 import './AboutUs.css';
+import email from '../assest/Component 53.svg';
+import whatsapp from '../assest/Component 54.svg';
+import call from '../assest/Component 55.svg';
 
 const AboutUs = () => {
     return (
@@ -100,7 +103,11 @@ const AboutUs = () => {
         
         </div>
 
-    
+        <div class="fixed-icons">
+    <img src={email} alt="Email" class="icon icon1" />
+    <img src={call} alt="Phone" class="icon " />
+    <img src={whatsapp} alt="WhatsApp" class="icon icon2" />
+</div>
         
              
             </>

@@ -24,18 +24,17 @@ const SliderComponent = () => {
       <h2 className="title text-center">شركائنا</h2>
       <div className="slider-container">
         <Slider {...settings}>
-          <div className="slide-item">
-            <img src={icon3} alt="Image 1" />
-          </div>
-          <div className="slide-item">
+        <div className="slide-item">
             <img src={icon2} alt="Image 2" />
           </div>
-          <div className="slide-item">
+        <div className="slide-item">
             <img src={icon1} alt="Image 3" />
           </div>
           <div className="slide-item">
-            <img src={icon3} alt="Image 4" />
+            <img src={icon3} alt="Image 1" />
           </div>
+         
+       
         </Slider>
       </div>
     </div>

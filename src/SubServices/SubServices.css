@@ -1,0 +1,52 @@
+
+
+  
+  .description {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .serviceCardContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+
+  }
+  
+  .serviceCard {
+    padding: 24px;
+    border-right: 5px solid #7940B1;
+    display: flex;
+    margin-bottom: 20px;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: right; /* Ensure text is right-aligned */
+  }
+  
+  .serviceCard-text {
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+  
+  .serviceCard-title {
+    margin-bottom: 16px;
+  }
+  
+  .serviceCard-button {
+    background-color: #311356; /* Purple button background */
+    color: white;
+    font-weight: bold;
+    width: 118.89px;
+    height: 43px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 12px; /* Rounded button */
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .serviceCard-button:hover {
+    background-color: #5A54D9; /* Darker purple on hover */
+  }
+  
