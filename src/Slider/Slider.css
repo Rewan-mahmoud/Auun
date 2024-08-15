@@ -32,6 +32,7 @@
     padding: 40px;
 }
 
+
 .slick-prev::before, .slick-next::before {
     font-size: 30px; /* Adjust the size of the arrows */
 }

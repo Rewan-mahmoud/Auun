@@ -1,22 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import icon1 from "../assest/stripe.svg"
-import icon2 from "../assest/yandex_kassa.png"
-import icon3 from "../assest/envato.png"
 import './Slider.css';
 
 const SliderComponent = () => {
+  const [clients, setClients] = useState([]);
+
+  useEffect(() => {
+    // Fetch data from the clients API
+    fetch('https://admin.auun.net/api/clients')
+      .then(response => response.json())
+      .then(data => {
+        if (data.status && data.data) {
+          setClients(data.data);
+        }
+      })
+      .catch(error => console.error('Error fetching the clients data:', error));
+  }, []);
+
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 2, // Number of slides to show side by side
     slidesToScroll: 1,
-    centerMode: true,
-    centerPadding: '0',
-    arrows: true
+    centerMode: false, // Disable center mode
+    arrows: true,
   };
 
   return (
@@ -24,17 +34,11 @@ const SliderComponent = () => {
       <h2 className="title text-center">شركائنا</h2>
       <div className="slider-container">
         <Slider {...settings}>
-        <div className="slide-item">
-            <img src={icon2} alt="Image 2" />
-          </div>
-        <div className="slide-item">
-            <img src={icon1} alt="Image 3" />
-          </div>
-          <div className="slide-item">
-            <img src={icon3} alt="Image 1" />
-          </div>
-         
-       
+          {clients.map(client => (
+            <div key={client.id} className="slide-item">
+              <img src={`https://admin.auun.net/${client.images}`} alt={`Client ${client.id}`} />
+            </div>
+          ))}
         </Slider>
       </div>
     </div>

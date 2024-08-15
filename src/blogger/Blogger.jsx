@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Blogger.css';
 import group from "../assest/8.png";
-import imgCard from "../assest/cardimg.jpeg";
 import circle from "../assest/Ellipse 1.svg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
@@ -11,51 +10,70 @@ import whatsapp from '../assest/Component 54.svg';
 import call from '../assest/Component 55.svg';
 
 const Blogger = () => {
-  const cardData = [
-    {
-      imgSrc: imgCard,
-      circleSrc: circle,
-      title: 'الاستشارات المالية كيفيتها وعلاقتها بلحوكمة ...',
-      date: '22/3/2024',
-      text: 'الاستشارات المالية لها علاقة كبيرة بالاموال والاستشارات هي كافة الخدمات التي يقدمها مستشار ضريبة القيمة المضافة والمستشار الزكوي والمحاسب القانوني والتي تشمل إعداد ومراجعة الاقرارات الضريبية .',
-    },
-    {
-      imgSrc: imgCard,
-      circleSrc: circle,
-      title: 'الاستشارات المالية كيفيتها وعلاقتها بلحوكمة ...',
-      date: '22/3/2024',
-      text: 'الاستشارات المالية لها علاقة كبيرة بالاموال والاستشارات هي كافة الخدمات التي يقدمها مستشار ضريبة القيمة المضافة والمستشار الزكوي والمحاسب القانوني والتي تشمل إعداد ومراجعة الاقرارات الضريبية .',
-    },
-    {
-      imgSrc: imgCard,
-      circleSrc: circle,
-      title: 'الاستشارات المالية كيفيتها وعلاقتها بلحوكمة ...',
-      date: '22/3/2024',
-      text: 'الاستشارات المالية لها علاقة كبيرة بالاموال والاستشارات هي كافة الخدمات التي يقدمها مستشار ضريبة القيمة المضافة والمستشار الزكوي والمحاسب القانوني والتي تشمل إعداد ومراجعة الاقرارات الضريبية .',
-    },
-    {
-      imgSrc: imgCard,
-      circleSrc: circle,
-      title: 'الاستشارات المالية كيفيتها وعلاقتها بلحوكمة ...',
-      date: '22/3/2024',
-      text: 'الاستشارات المالية لها علاقة كبيرة بالاموال والاستشارات هي كافة الخدمات التي يقدمها مستشار ضريبة القيمة المضافة والمستشار الزكوي والمحاسب القانوني والتي تشمل إعداد ومراجعة الاقرارات الضريبية .',
-    },
-    {
-      imgSrc: imgCard,
-      circleSrc: circle,
-      title: 'الاستشارات المالية كيفيتها وعلاقتها بلحوكمة ...',
-      date: '22/3/2024',
-      text: 'الاستشارات المالية لها علاقة كبيرة بالاموال والاستشارات هي كافة الخدمات التي يقدمها مستشار ضريبة القيمة المضافة والمستشار الزكوي والمحاسب القانوني والتي تشمل إعداد ومراجعة الاقرارات الضريبية .',
-    },
-    {
-      imgSrc: imgCard,
-      circleSrc: circle,
-      title: 'الاستشارات المالية كيفيتها وعلاقتها بلحوكمة ...',
-      date: '22/3/2024',
-      text: 'الاستشارات المالية لها علاقة كبيرة بالاموال والاستشارات هي كافة الخدمات التي يقدمها مستشار ضريبة القيمة المضافة والمستشار الزكوي والمحاسب القانوني والتي تشمل إعداد ومراجعة الاقرارات الضريبية .',
-    },
+  const [blogs, setBlogs] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [activeCategoryId, setActiveCategoryId] = useState(null); // Track the selected category
+  const [error, setError] = useState(null);
 
-  ];
+  useEffect(() => {
+    // Fetch categories data from the API
+    fetch('https://admin.auun.net/api/categories')  // Replace this with the correct endpoint if needed
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        if (data.status && data.data) {
+          setCategories(data.data);
+        } else {
+          throw new Error('Failed to load categories');
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching the categories data:', error);
+        setError(error.message);
+      });
+
+    // Fetch all blogs initially or when activeCategoryId changes
+    if (activeCategoryId !== null) {
+      fetch('https://admin.auun.net/api/cat_blogs', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'lang':'ar'
+        },
+        body: JSON.stringify({ cat_id: activeCategoryId }),
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.status && data.data) {
+            setBlogs(data.data);
+          } else {
+            throw new Error('Failed to load blogs');
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching the blog data:', error);
+          setError(error.message);
+        });
+    } else {
+      // Fetch all blogs if no category is selected
+      fetch('https://admin.auun.net/api/all_blog')
+        .then(response => response.json())
+        .then(data => {
+          if (data.status && data.data) {
+            setBlogs(data.data);
+          }
+        })
+        .catch(error => console.error('Error fetching the blog data:', error));
+    }
+  }, [activeCategoryId]);
+
+  const handleCategoryClick = (catId) => {
+    setActiveCategoryId(catId);
+  };
 
   return (
     <>
@@ -77,39 +95,50 @@ const Blogger = () => {
               />
             </div>
             <ul className="nav justify-content-center blogger">
-              <li className="nav-item">
-                <a className="nav-link active" href="#">الاستشارات المالية</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">الاستشارات الادارية</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">تطوير الاعمال</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link disabled" href="#">الحوكمة</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link disabled" href="#">الحلول التقنية</a>
-              </li>
+              {error ? (
+                <li className="nav-item">
+                  <a className="nav-link disabled" href="#">Error loading categories</a>
+                </li>
+              ) : categories.length > 0 ? (
+                categories.map((category) => (
+                  <li className="nav-item" key={category.id}>
+                    <a
+                      className={`nav-link ${activeCategoryId === category.id ? 'active' : ''}`}
+                      href="#"
+                      onClick={() => handleCategoryClick(category.id)}
+                    >
+                      {category.name}
+                    </a>
+                  </li>
+                ))
+              ) : (
+                <li className="nav-item">
+                  <a className="nav-link disabled" href="#">Loading categories...</a>
+                </li>
+              )}
             </ul>
           </div>
         </div>
       </div>
       <div className="container cardContainer">
         <div className="row">
-          {cardData.map((card, index) => (
-            <div className="col-md-6 cardGap " key={index}>
-              <Card {...card} />
-            </div>
-          ))}
+          {blogs.length > 0 ? (
+            blogs.map((blog) => (
+              <div className="col-md-6 cardGap" key={blog.id}>
+                <Card
+                  imgSrc={`https://admin.auun.net${blog.image}`}
+                  circleSrc={circle}
+                  title={blog.title}
+                  date={new Date().toLocaleDateString()} // You might want to use the actual date if available
+                  text={blog.description.replace(/<[^>]+>/g, '')} // Stripping HTML tags from description
+                />
+              </div>
+            ))
+          ) : (
+            <p>No blogs available for this category.</p>
+          )}
         </div>
       </div>
-      <div class="fixed-icons">
-    <img src={email} alt="Email" class="icon icon1" />
-    <img src={call} alt="Phone" class="icon " />
-    <img src={whatsapp} alt="WhatsApp" class="icon icon2" />
-</div>
     </>
   );
 };

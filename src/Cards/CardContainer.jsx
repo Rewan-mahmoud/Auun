@@ -23,11 +23,11 @@ const Card = ({ imgSrc, circleSrc, title, date, text }) => (
       <p className="card-text mt-3">{text}</p>
       <FontAwesomeIcon className="arrow-icon" icon={faArrowLeft} />
     </div>
-    <div class="fixed-icons">
+    {/* <div class="fixed-icons">
     <img src={email} alt="Email" class="icon icon1" />
     <img src={call} alt="Phone" class="icon " />
     <img src={whatsapp} alt="WhatsApp" class="icon icon2" />
-</div>
+</div> */}
   </div>
 );
 

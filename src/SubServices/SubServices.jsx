@@ -1,85 +1,79 @@
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './SubServices.css'; // Import the CSS file
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import email from '../assest/Component 53.svg';
 import whatsapp from '../assest/Component 54.svg';
 import call from '../assest/Component 55.svg';
 
-const cardsData = [
-  {
-    id: 1,
-    text: "الزكاة والضريبة",
-    title: 'قوم بتقديم المشوره اللازمة بتقديم الإقرارات الزكوية والضريبية و الرد علي ملاحظات الهيئة الضريبية',
-    buttonText: "المزيد",
-    link: "/FinancialGovernance" 
-  },
-  {
-    id: 2,
-    text: "اعداد القوائم الماليه",
-    title: 'نقوم بفحص القوئم المالية بالمعايير المحاسبية المعتمدة من الهيئة السعودية للمحاسبين القانونونين',
-    buttonText: "المزيد",
-    link: "/Fainancial" 
-  },
-  {
-    id: 3,
-    text: " مراجعة الداخليه والخارجية",
-    title: 'من المتطلبات الرئيسة لكل من الشركاء وهيئة الزكاة والدخل ووزارة التجارة والصناعه والبنوك …..الخ',
-    buttonText: "المزيد",
-    link: "/Reservation" 
-  },
-  {
-    id: 4,
-    text: "استشارات",
-    title: 'نقوم بعمل استشارات مالية وادارية متخصصة لمساعدة الشركات في الاستمرار والتطور',
-    buttonText: "المزيد",
-    link: "/Consulting" 
-  },
-  {
-    id: 5,
-    text: "تصفية الشركات",
-    title: 'مهمة تأسيس وتصفية الشركات يجب أن تُنسب إلى جهات مختصة ولها معرفة عالية بالقوانين واللوائح',
-    buttonText: "المزيد",
-    link: "/Filtring" 
-  },
-  {
-    id: 6,
-    text: "ادارة الدفاتر المحاسبية"   ,
-    title: 'تأسيس الحسابات على اساس سليم يطور ويفيد المنشأه في الحصول على دفاتر سليمة وتقارير مناسبة ',
-    buttonText: "المزيد",
-    link: "/Managment"
-  },
-  {
-    id: 7,
-    text: "الاستشارات المالية المتخصصة"   ,
-    title: 'تبدأ باحتياجات العميل نساعده على تطوير عمله، نراجع معه موقفه المالي وهيكل الشركة التنظيمي  ',
-    buttonText: "المزيد",
-    link: "/SpecialistConsulting" 
-  }
-];
-
 const SubServices = () => {
-    return (
-        <div className="container">
-          <h3 className="title">الاستشارات المالية المتكاملة</h3>
-          <p className="description mb-5">يتكون فريق عملنا من مجموعة كبري من المحاسبين والمستشارين والمهنين المتخصصين في المجالي المالي والإداري</p>
-          <div className="serviceCardContainer">
-            {cardsData.map(card => (
-              <div key={card.id} className="serviceCard">
-                <h5 className="serviceCard-text">{card.text}</h5>
-                <p className="serviceCard-title">{card.title}</p>
-              <Link to={card.link}><button className="serviceCard-button">{card.buttonText}</button></Link>  
-              </div>
-            ))}
-          </div>
-          <div class="fixed-icons">
-    <img src={email} alt="Email" class="icon icon1" />
-    <img src={call} alt="Phone" class="icon " />
-    <img src={whatsapp} alt="WhatsApp" class="icon icon2" />
-</div>
-        </div>
+  const [subServicesData, setSubServicesData] = useState([]);
+  const [serviceId, setServiceId] = useState(1); // Replace with the appropriate service ID
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
-      );
+  useEffect(() => {
+    // Fetch the sub services data from the API
+    console.log('Service ID:', serviceId);
+    fetch('https://admin.auun.net/api/sub_services', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'lang': 'ar' // Request Arabic language
+      },
+      body: JSON.stringify({ service_id: serviceId }) // Send the service_id
+    })
+      .then(response => {
+        if (!response.ok) {
+          // Handle non-200 responses
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json(); // Attempt to parse JSON
+      })
+      .then(data => {
+        if (data.status && data.data) {
+          setSubServicesData(data.data);
+        } else {
+          throw new Error(data.message || 'Invalid data structure');
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching sub services:', error);
+        setError(error.message);
+      });
+  }, [serviceId]);
+
+  const handleServiceClick = (id) => {
+    navigate(`/ServiceDetail/${id}`); // Ensure the path and ID are correct
+  };
+  
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  return (
+    <div className="container">
+      <h3 className="title">الاستشارات المالية المتكاملة</h3>
+      <p className="description mb-5">يتكون فريق عملنا من مجموعة كبري من المحاسبين والمستشارين والمهنين المتخصصين في المجالي المالي والإداري</p>
+      <div className="serviceCardContainer">
+        {subServicesData.length > 0 ? (
+          subServicesData.map(service => (
+            <div key={service.id} className="serviceCard" onClick={() => handleServiceClick(service.id)}>
+              <h5 className="serviceCard-text">{service.title}</h5>
+              <button className="serviceCard-button">المزيد</button>
+            </div>
+          ))
+        ) : (
+          <p>Loading services...</p>
+        )}
+      </div>
+      <div className="fixed-icons">
+        <img src={email} alt="Email" className="icon icon1" />
+        <img src={call} alt="Phone" className="icon " />
+        <img src={whatsapp} alt="WhatsApp" className="icon icon2" />
+      </div>
+    </div>
+  );
 };
 
 export default SubServices;
