@@ -81,11 +81,7 @@ const Contact = () => {
           title="Saudi Arabia Map"
       ></iframe>
   </div>
-  <div class="fixed-icons">
-    <img src={email} alt="Email" class="icon icon1" />
-    <img src={call} alt="Phone" class="icon " />
-    <img src={whatsapp} alt="WhatsApp" class="icon icon2" />
-</div>
+
     </div>
     
         

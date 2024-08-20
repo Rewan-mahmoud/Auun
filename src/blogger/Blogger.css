@@ -1,9 +1,12 @@
+.blogger{
+    position: relative;
+}
 .overlayy-text {
      position: absolute;
     top: 65%;
     /* left: 40%; */
     /* color: bisque; */
-    transform: translate(-69%, -50%);
+    transform: translate(-50%, -50%);
     /* padding: 20px; */
 
 }
@@ -11,13 +14,18 @@
     color: #311356 !important;
     font-size: 64px !important;
     font-weight: 700;
+    /* margin-right: 60px; */
+
 }
 .background input {
-    border: #311356 solid 2px !important ;
+    border: #311356 solid 2px !important;
     border-radius: 16px;
     margin-top: 100px;
     margin-bottom: 60px;
+    width: 85%;
+    padding: 7px;
 }
+
 .input-with-icon {
     position: relative;
   }
@@ -29,31 +37,41 @@
   .input-with-icon .fa-magnifying-glass {
     position: absolute;
     right: 0.75rem;
-    top: 50%;
+    top: 60%;
     transform: translateY(-50%);
     pointer-events: none;
-    width: 24px;
-    height: 24px;
-  }
+    width: 21px;
+    height: 22px;
+}
+
   /* NavigationMenu.css */
 .blogger .nav-link {
     margin: 0 !important;
     color: #311356 ;
     font-size: 12px;
 }
+.bloggerNav{
+    display: flex;
+    justify-content: center;
+        list-style-type: none; /* Remove bullets from the list */
+        padding: 0; /* Remove default padding */
+        display: flex; /* Align items horizontally */
+        gap: 15px; /* Add space between list items */
+    
+      
+}
+
 .blogger .nav-link  {
     text-decoration: underline !important;
 }
-.blogger .overlayy-text {
-    transform: translate(-73%, -50%) !important ;
-}
+
 ul{
     padding-right: 0px !important;
 }
 
 .BloggerCard {
     width: 350px;
-    height: 384px;
+    height: auto;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -85,7 +103,7 @@ ul{
 }
 
 .card-body {
-    position: absolute;
+
     bottom: 0px;
     padding:  26px 36px 26px 36px;
     left: 27px;

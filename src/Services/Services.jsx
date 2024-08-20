@@ -45,11 +45,7 @@ const Services = () => {
         ) : (
           <p>Loading services...</p>
         )}
-        <div className="fixed-icons">
-          <img src={email} alt="Email" className="icon icon1" />
-          <img src={call} alt="Phone" className="icon" />
-          <img src={whatsapp} alt="WhatsApp" className="icon icon2" />
-        </div>
+      
       </div>
     </div>
   );

@@ -60,8 +60,11 @@ const Blogger = () => {
         });
     } else {
       // Fetch all blogs if no category is selected
-      fetch('https://admin.auun.net/api/all_blog')
+      fetch('https://admin.auun.net/api/all_blog'
+       
+      )
         .then(response => response.json())
+        
         .then(data => {
           if (data.status && data.data) {
             setBlogs(data.data);
@@ -81,10 +84,10 @@ const Blogger = () => {
         <img src={group} alt="gif" />
         <div className="overlayy-text">
           <h1>مدونة عون المتميزة</h1>
-          <div className="relative bg-gray-900 flex items-center justify-center h-screen">
+      
             <div className="input-with-icon">
               <input
-                className="form-control mr-sm-2 pl-4 pr-10 py-2 rounded-full bg-gray-900 text-gray-200 border border-purple-800 focus:outline-none focus:ring-2 focus:ring-purple-600"
+                className=" "
                 type="search"
                 placeholder="ابحث"
                 aria-label="Search"
@@ -94,7 +97,7 @@ const Blogger = () => {
                 className="absolute right-3 top-1/2 transform -translate-y-1/2 text-purple-600 pointer-events-none"
               />
             </div>
-            <ul className="nav justify-content-center blogger">
+            <ul className="bloggerNav ">
               {error ? (
                 <li className="nav-item">
                   <a className="nav-link disabled" href="#">Error loading categories</a>
@@ -119,7 +122,7 @@ const Blogger = () => {
             </ul>
           </div>
         </div>
-      </div>
+
       <div className="container cardContainer">
         <div className="row">
           {blogs.length > 0 ? (

@@ -4,12 +4,15 @@
   .description {
     font-size: 18px;
     margin-bottom: 20px;
+ 
   }
   
   .serviceCardContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(3, 1fr); 
     gap: 16px;
+    margin: 150px 0px;
+
 
   }
   
@@ -26,6 +29,7 @@
   .serviceCard-text {
     font-weight: 700;
     font-size: 20px;
+
     margin-bottom: 16px;
   }
   
@@ -49,4 +53,23 @@
   .serviceCard-button:hover {
     background-color: #5A54D9; /* Darker purple on hover */
   }
+  @media (max-width: 768px) {
+    .serviceCardContainer {
+      grid-template-columns: repeat(2, 1fr); /* Two columns for medium screens */
+    }
+  }
   
+  @media (max-width: 480px) {
+    .serviceCardContainer {
+      grid-template-columns: 1fr; /* One column for small screens */
+    }
+  }
+  
+
+  .icon1 {
+    margin-top: 70px;
+  }
+  
+  .icon2 {
+    margin-top: 135px;
+  }

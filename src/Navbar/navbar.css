@@ -1,20 +1,37 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+* {
+  box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #FCF9FF;
   padding: 10px 20px;
-  height: 120px;
-  font-family: "Cairo", sans-serif !important;
-  position: fixed; /* Make the navbar fixed */
-  top: 0; /* Position it at the top of the page */
-  width: 100%; /* Make it span the full width of the page */
-  z-index: 1000; /* Ensure it is on top of other elements */
-  transition: height 0.3s ease; /* Add transition for smooth height change */
+  height: 94px;
+
+  position: fixed; /* Fixed position at the top */
+  top: 0;
+  left: 0; /* Start from the left edge */
+  width: 100%; /* Ensure it takes the full width */
+  z-index: 1000;
+  transition: height 0.3s ease;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for better look */
 }
 
-.navbar.scrolled {
-  height: 100px; /* Adjust this value to the desired height when scrolled */
+.container {
+  width: 100%; /* Container should also span the full width */
+  max-width: 100%; /* Remove any constraints on max-width */
+  /* display: flex; */
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navbar-left,
@@ -25,28 +42,21 @@
 }
 
 .logo {
-  height: 81.09px;
-  width: 68px;
-  margin-right: 10px;
-}
-.navbar-right{
-  margin-left: 70px;
-
-}
-.logo2 {
-  width: 114px;
-  height: 50px;
+  height: 60px;
+  width: 50px;
+  margin-right: 20px;
 }
 
 .navbar-center {
   flex-grow: 1;
   justify-content: center;
+  align-items: center;
 }
 
 .nav-link {
   color: #311356 !important;
   text-decoration: none;
-  margin: 0 35px;
+  margin: 0 30px;
   font-size: 16px;
   transition: color 0.3s;
 }
@@ -55,16 +65,16 @@
   color: #00bfff;
 }
 
-.price-button {
+.price-button ,.price-button-inside-toggle {
   background-color: #FCF9FF;
   color: #311356;
-  margin-right: 30px;
   border: 1px solid #311356 !important;
   padding: 10px 20px;
   font-size: 16px;
   border-radius: 16px;
   cursor: pointer;
   transition: background-color 0.3s;
+  margin-left: 20px;
 }
 
 .price-button:hover {
@@ -73,7 +83,236 @@
 }
 
 .nav-link.active {
-  color: #4620a3; /* Change this to the desired active link color */
-  font-weight: bold; /* Add any additional styling for the active link */
+  color: #4620a3;
+  font-weight: bold;
 }
 
+.logo2 {
+  height: 73px;
+  width: 100px;
+  margin-left: 10px;
+}
+
+
+/* Menu toggle button styles */
+.menu-toggle {
+  display: none;
+  background-color: transparent;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #311356;
+  margin-left: 20px;
+}
+
+/* Inside toggle menu (initially hidden) */
+.price-button-inside-toggle,
+.logo2-inside-toggle {
+  display: none;
+}
+
+
+
+/* Responsive Styles */
+
+@media (max-width: 1205px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+  .logo2-inside-toggle,
+  .price-button-inside-toggle {
+    display: none; /* Hide them on larger screens */
+  }
+
+  .navbar-left {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .navbar-center,
+  .navbar-right {
+    display: none; /* Hide the navbar-center and navbar-right by default */
+  }
+  .navbar-center.open {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-top: 10px;
+    transition: max-height 0.3s ease-in-out;
+  }
+
+
+  .nav-link {
+    margin: 10px 0;
+    font-size: 14px;
+  }
+
+  .logo {
+    height: 50px;
+    width: 40px;
+  }
+
+  .logo2-container {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .logo2 {
+    height: 50px;
+    width: 40px;
+  }
+
+  .price-button {
+    padding: 8px 15px;
+    font-size: 14px;
+    
+  }
+
+  .menu-toggle {
+    display: block; /* Show the toggle button */
+  }
+  .price-button-inside-toggle,
+  .logo2-inside-toggle {
+    display: block;
+    margin-top: 15px;
+  }
+
+}
+
+
+@media (max-width: 1204px) {
+
+  .nav-link {
+    margin: 37px 25px;
+    font-size: 25px;
+
+  }
+  .logo {
+    height: 75px;
+    width: 75px;
+}
+    .navbar {
+      height: auto;
+
+    }
+    .price-button {
+      padding: 18px 11px;
+      font-size: 20px;
+      width: 208px;
+      margin-left: 33px;}
+
+    .logo2 {
+      width: 150px;
+      height: 70px;
+  }
+
+  
+.more-button{
+  padding: 21px 76px !important;
+  border-radius: 5px !important;
+  font-size: 1.9rem !important;
+  margin-top: 20px;
+}
+}
+
+@media (min-width: 1796px) {
+  .background  {
+    height: 100vh !important;
+  }
+  .nav-link {
+    margin: 40px 45px;
+
+    font-size: 35px;
+  }
+  .logo {
+    height: 100px;
+    width: 100px;}
+    .navbar {
+      height: 180px;
+    }
+    .price-button{
+      padding: 26px 20px;
+      font-size: 24px;
+      width: 249px;
+      margin-left: 70px;
+    }
+    .logo2 {
+      width: 169px;
+      height: 100px;
+      margin-left: 48px;
+  }
+
+  
+.more-button{
+  padding: 21px 76px !important;
+  border-radius: 5px !important;
+  font-size: 1.9rem !important;
+  margin-top: 20px;
+}
+}
+/* @media (min-width: 1785px) {
+  .background  {
+    height: 100vh !important;
+  }
+  .nav-link {
+    margin: 40px 45px;
+
+    font-size: 31px;
+  }
+  .logo {
+    height: 100px;
+    width: 100px;}
+    .navbar {
+      height: 180px;
+    }
+    .price-button{
+      padding: 26px 20px;
+      font-size: 24px;
+      width: 249px;
+      margin-left: 70px;
+    }
+    .logo2 {
+      width: 169px;
+      height: 100px;
+      margin-left: 48px;
+  }
+
+  
+.more-button{
+  padding: 21px 76px !important;
+  border-radius: 5px !important;
+  font-size: 1.9rem !important;
+  margin-top: 20px;
+}
+} */
+
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 10px;
+  }
+
+  .nav-link {
+    margin: 8px 0;
+    font-size: 12px;
+  }
+
+  .price-button {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .logo {
+    height: 40px;
+    width: 30px;
+  }
+
+  .logo2 {
+    width: 70px;
+    height: 30px;
+  }
+}

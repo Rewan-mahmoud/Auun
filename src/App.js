@@ -20,9 +20,11 @@ import SpecialistConsulting from './SpecialistConsulting/SpecialistConsulting';
 import Filtring from './Filtring/Filtring';
 import ContactForm from './ContactForm/ContactForm';
 import Managment from './Managment/Managment';
+import FixedIcons from './FixedIcons/FixedIcons';
 function App() {
   return (
-    <Router>
+    <>
+      <Router>
     <Navbar />
     {<Routes>
       <Route path="/" element={<Home />} />
@@ -46,6 +48,9 @@ function App() {
     </Routes> }
     <Footer />
   </Router>
+  <FixedIcons/>
+    </>
+  
   );
 }
 

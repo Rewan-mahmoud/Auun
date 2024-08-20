@@ -1,21 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import SliderComponent from '../Slider/SliderComponent';
 import Services from '../Services/Services';
-import AboutUs from '../AboutUs/AboutUs';
 import img3 from "../assest/Group 1000007035.png";
 import './Home.css';
-import vector from '../assest/profile avatar.png';
-import phone from '../assest/3.png';
-import mail from '../assest/2.png';
-import location from '../assest/1.png';
-import gif from '../assest/CC5l.gif';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import group from '../assest/Group 295 (1).png';
-import email from '../assest/Component 53.svg';
-import whatsapp from '../assest/Component 54.svg';
-import call from '../assest/Component 55.svg';
-import layer from '../assest/Rectangle 219 (1).png';
+
 import ContactForm from '../ContactForm/ContactForm';
 import axios from 'axios';
+import FixedIcons from '../FixedIcons/FixedIcons';
 
 const Home = () => {
     const [activeIndex, setActiveIndex] = useState(null);
@@ -33,15 +29,15 @@ const Home = () => {
             .then(response => response.json())
             .then(data => {
                 if (data.status && data.data.length > 0) {
-                    setSliderData(data.data[0]); // Assuming you want the first slider item
+                    setSliderData(data.data[0]); 
                 }
             })
             .catch(error => console.error('Error fetching the slider data:', error));
 
-        // Fetch the how-serve data
+    
         axios.get('https://admin.auun.net/api/howserve', {
           headers: {
-              'lang': 'ar' // Request Arabic language
+              'lang': 'ar' 
           }
       })
             .then(response => {
@@ -54,7 +50,7 @@ const Home = () => {
         // Fetch the FAQ data
         axios.get('https://admin.auun.net/api/question', {
           headers: {
-              'lang': 'ar' // Request Arabic language
+              'lang': 'ar'
           }
       })
             .then(response => {
@@ -73,15 +69,15 @@ const Home = () => {
         <>
             <div className="background">
                 <div className="image-container">
-                    {sliderData ? (
-                        <img
-                            src={`https://admin.auun.net${sliderData.files}`}
-                            alt="slider"
-                            className="gif-image"
-                        />
-                    ) : (
-                        <img src={gif} alt="gif" className="gif-image" />
-                    )}
+                {sliderData && (
+    <video
+        src={`https://admin.auun.net${sliderData.files}`}
+        autoPlay
+        loop
+        muted
+        className="gif-image"
+    />
+)}
                     <div className="layer"></div>
                     <div className="overlay-text">
                         <h1>{sliderData ? sliderData.title : 'عون المتميزة'}</h1>
@@ -171,11 +167,7 @@ const Home = () => {
                 <ContactForm />
             </div>
 
-            <div className="fixed-icons">
-                <img src={email} alt="Email" className="icon icon1" />
-                <img src={call} alt="Phone" className="icon" />
-                <img src={whatsapp} alt="WhatsApp" className="icon icon2" />
-            </div>
+
         </>
     );
 };

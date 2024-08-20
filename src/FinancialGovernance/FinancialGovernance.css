@@ -1,8 +1,4 @@
-.governance-container {
 
-
-
-  }
   .mx-auto{
     margin: 0 auto; /* Center the container */
     padding: 20px;
@@ -22,15 +18,16 @@
     position: relative;
     height: auto;
     border-radius: 12px;
-    margin-top: 50px;
+    margin-top: 160px;
   }
   .governanceImageLayer{
     background-color: #311356;
     position: absolute;
-    width: 1280px;
+    width: 1240px;
     border-radius: 64px;
     height: 420px;
-    left: 80px;
+    left: 14px;
+    top: 95px;
   }
   .governance-title {
     font-size: 24px;
@@ -46,6 +43,9 @@
     margin-bottom: 50px ;
     line-height: 1.6;
     text-align: justify;
+  }
+  .governance-description span {
+    font-family: "Cairo", sans-serif !important; 
   }
   .services-container {
     padding: 20px;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './SubServices.css'; // Import the CSS file
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import email from '../assest/Component 53.svg';
 import whatsapp from '../assest/Component 54.svg';
 import call from '../assest/Component 55.svg';
@@ -13,7 +13,6 @@ const SubServices = () => {
 
   useEffect(() => {
     // Fetch the sub services data from the API
-    console.log('Service ID:', serviceId);
     fetch('https://admin.auun.net/api/sub_services', {
       method: 'POST',
       headers: {
@@ -52,9 +51,7 @@ const SubServices = () => {
   }
 
   return (
-    <div className="container">
-      <h3 className="title">الاستشارات المالية المتكاملة</h3>
-      <p className="description mb-5">يتكون فريق عملنا من مجموعة كبري من المحاسبين والمستشارين والمهنين المتخصصين في المجالي المالي والإداري</p>
+    <div className="container mt-5">
       <div className="serviceCardContainer">
         {subServicesData.length > 0 ? (
           subServicesData.map(service => (
@@ -67,11 +64,7 @@ const SubServices = () => {
           <p>Loading services...</p>
         )}
       </div>
-      <div className="fixed-icons">
-        <img src={email} alt="Email" className="icon icon1" />
-        <img src={call} alt="Phone" className="icon " />
-        <img src={whatsapp} alt="WhatsApp" className="icon icon2" />
-      </div>
+    
     </div>
   );
 };
