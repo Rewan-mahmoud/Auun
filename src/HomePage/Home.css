@@ -1,4 +1,5 @@
 
+
 .faq-container {
     max-width: 1240px;
     margin: 50px auto;
@@ -115,6 +116,7 @@
     background-position: center;
     background-size: cover;
     width: 100%;
+    height: 100%;
   }
   .background {
   position: relative;
@@ -130,43 +132,28 @@
   display: block;
 }
 
+
+.background {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Ensure the background container is the full viewport height */
+}
+
+.gif-image {
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  object-fit: cover; /* Ensure the image/video covers the area */
+}
+
 .layer {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background-color:#7e6b97b2 ;
-  object-fit: cover; /* or use other fitting method like 'contain' based on your need */
+  height: 100vh; /* Match the gif-image height */
+  background: linear-gradient(to right, #9c78c7b2, #18121eb2); /* Adjust the gradient as needed */
 }
-.background {
-    position: relative;
-    width: 100%;
-    height: auto;
-  }
-  
-  .image-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .gif-image {
-    width: 100%;
-    height: auto;
-  }
-  
-  .layer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
- background: linear-gradient(to right, #9c78c7b2, #18121eb2);
-   
-      ; /* Semi-transparent overlay */
-  }
-  
+
   .overlay-text {
     position: absolute;
     top: 63%;
@@ -202,3 +189,252 @@
     background-color: #8124BD; /* Darker purple color */
   }
 
+  @media (min-width: 1795px) {
+   
+  
+    .overlay-text p {
+      font-size: 2rem;
+    }
+    .slider-container {
+      width: 100%;
+      max-width: 1600px;
+  }
+ .title{
+  font-size: 4rem;
+}
+ .serviceseDescription {
+font-size: 30px;
+}
+.Services .card-description, span {
+  font-size: 23px;
+}
+.service-title {
+  font-size: 66px;
+}
+.service-description{
+  font-size: 35px;
+    line-height: 71px;
+}
+.details{
+  padding: 300px 102px;
+}
+
+.faq-question {
+  font-size: 30px;
+}
+.faq-header {
+  font-size: 40px;
+}
+.step-number {
+  width: 40px;
+  height: 40px;
+  font-size: 1.6rem;
+}
+.step-description {
+  font-size: 1.4rem;
+}
+.step-title {
+  font-size: 2.3rem;
+}
+.how-it-works-title {
+    font-size: 2.9rem;
+  }
+  .faq-answer {
+    font-size: 27px;
+  }
+   .contact label {
+      padding: 20px !important;
+      font-size: 30px !important;
+    }
+   .contact input ,select , textarea {
+      padding: 20px !important;
+      font-size: 30px !important;
+    }
+    .contact button {
+      padding: 19px;
+      font-size: 35px;
+    
+
+    }
+    .Services {
+      margin-top: 224px;
+  }
+    
+    .footer-logo {
+      width: 65%;}
+  .vector img{
+     margin-right: 25px; 
+    
+    }
+    .card-title {
+      font-size: 2em;
+    }  
+    .card {
+      width: 385px;}
+    .faq-container {
+      max-width: 1298px;
+      }
+      .footer-title {
+        font-size: 2.5em;}
+    .footer-column p {
+      font-size: 2.3em;
+        margin: 26px 0
+    }
+    .footer-content {
+      padding: 21px 90px;
+      max-width: none;
+
+    }
+    .footer {
+
+      padding: 87px 0;}
+    .footer svg {
+      font-size: 38px;
+      }
+      .footer-column {
+      
+        max-width: 439px;}
+        .footer-bottom p {
+          font-size: 41px;
+          margin-top: 75px;
+      }
+      .howWork img {
+        width: 80%;
+    }
+    .howWork h5 {
+      padding-bottom: 142px;
+      font-size: 37px;
+  }
+  .service-image img{
+    width: 100%;
+    height: 100%;
+  }
+  .service-section p {
+    font-size: 40px;
+}
+
+.titles h1 {
+    font-size: 5.5rem;
+}
+.phone-info h2 {
+  font-size: 3.5em;}
+
+
+.titles p {
+    font-size: 2.2rem;
+}
+.phone-contact {
+  width: 551px;
+  padding: 38px
+  }
+  .phone-icon img {
+    width: 94px;
+  }
+  .phone-info p {
+    font-size: 2em;
+  }
+.map iframe {
+    width: 100% !important;
+}
+.icon-circle .svg-inline--fa {
+  color: #fff;
+  font-size: 41px !important;
+}
+.icon-circle {
+  width: 100px !important;
+  height: 100px !important;
+}
+.icon-circle.hovered {
+  border-radius: 25px; /* Make the icon container more oval-shaped */
+  width: 250px !important;
+;
+}
+.icon-text{
+  font-size: 25px !important;
+}
+.blogger .nav-link {
+  font-size: 28px;
+}
+.background input {
+
+  font-size: 33px !important;
+  padding: 18px !important;
+  }
+  .blogger .nav-link {
+
+    font-size: 28px !important;
+  }
+  .input-with-icon .fa-magnifying-glass {
+    width: 51px !important;
+    height: 60px !important; 
+    right: 25.75rem !important;
+    top: 52% !important;
+}
+.input-with-icon input {
+  padding-right: 5rem !important;
+
+}
+.overlay-text h1 {
+  font-size: 90px !important;
+}
+
+.BloggerCard span {
+  font-size: 30px !important;
+}
+  .BloggerCard .card-text {
+    font-size: 34px !important;
+}
+.BloggerCard .card-title {
+  font-size: 32px !important;
+}
+.serviceCardContainer {
+  margin-top: 257px !important;
+}
+.serviceCard-text {
+  font-size: 40px !important;
+}
+.serviceCard-button {
+  width: 159.89px;
+  height: 84px;
+ font-size: 30px;
+}
+
+.governance-image {
+
+  margin-top: 230px !important;
+}
+.governance-title {
+  font-size: 60px !important;
+  margin: 60px 0px;
+
+}
+.mx-auto {
+  width: 70% !important;
+}
+.governance-description span{
+  font-size: 35px !important;
+}
+.serviceCard-button {
+  width: 183.89px !important;
+  height: 77px !important;
+}
+.card-button {
+ 
+  padding: 16px 60px;
+  font-size: 28px;
+}
+.card{
+  height: 632px !important;
+}
+}
+
+
+
+@media (min-width: 2942px) {
+  .phone-contact {
+    width: 748px;
+    margin-right: 120px;
+}
+
+
+}

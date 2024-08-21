@@ -1,30 +1,33 @@
-.blogger{
-    position: relative;
-}
-.overlayy-text {
-     position: absolute;
-    top: 65%;
-    /* left: 40%; */
-    /* color: bisque; */
-    transform: translate(-50%, -50%);
-    /* padding: 20px; */
-
-}
+.background {
+    position: relative; /* Ensure this is relative to contain absolutely positioned children */
+  }
+  
+  .overlayy-text {
+    position: absolute;
+    top: 50%; /* Adjust as needed */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center horizontally and vertically */
+    width: 100%; /* Ensure it doesn't overflow */
+    text-align: center; /* Center the text inside */
+  }
+  
 .overlayy-text h1 {
     color: #311356 !important;
     font-size: 64px !important;
     font-weight: 700;
-    /* margin-right: 60px; */
+    margin-bottom: 20px; /* Ensure spacing */
+    text-align: center;
 
 }
 .background input {
-    border: #311356 solid 2px !important;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 10px;
     border-radius: 16px;
-    margin-top: 100px;
-    margin-bottom: 60px;
-    width: 85%;
-    padding: 7px;
-}
+    border: 2px solid #311356;
+    width: 80%;
+  }
+  
 
 .input-with-icon {
     position: relative;
@@ -50,16 +53,38 @@
     color: #311356 ;
     font-size: 12px;
 }
-.bloggerNav{
+.bloggerNav {
     display: flex;
     justify-content: center;
-        list-style-type: none; /* Remove bullets from the list */
-        padding: 0; /* Remove default padding */
-        display: flex; /* Align items horizontally */
-        gap: 15px; /* Add space between list items */
-    
-      
-}
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+    gap: 15px;
+  }
+  
+  .input-with-icon {
+    position: relative;
+    width: 100%; 
+  }
+  .input-with-icon input {
+    width: calc(100% - 50rem);
+    padding-right: 3rem;
+  }  
+
+  .fa-magnifying-glass {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .overlayy-text {
+    z-index: 10;
+  }
+  
+  .background img {
+    z-index: 1; /* The background image should be below the overlay */
+  }
+  
 
 .blogger .nav-link  {
     text-decoration: underline !important;
@@ -70,8 +95,8 @@ ul{
 }
 
 .BloggerCard {
-    width: 350px;
-    height: auto;
+    width: 100%;
+    height: 100%;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

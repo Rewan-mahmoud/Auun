@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import './SubServices.css'; // Import the CSS file
-import { useNavigate } from 'react-router-dom';
-import email from '../assest/Component 53.svg';
-import whatsapp from '../assest/Component 54.svg';
-import call from '../assest/Component 55.svg';
+import './SubServices.css'; 
+import { useParams, useNavigate } from 'react-router-dom';
 
 const SubServices = () => {
+  const { serviceId } = useParams(); // Get the serviceId from the URL
   const [subServicesData, setSubServicesData] = useState([]);
-  const [serviceId, setServiceId] = useState(1); // Replace with the appropriate service ID
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
@@ -17,16 +14,15 @@ const SubServices = () => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'lang': 'ar' // Request Arabic language
+        'lang': 'ar' 
       },
       body: JSON.stringify({ service_id: serviceId }) // Send the service_id
     })
       .then(response => {
         if (!response.ok) {
-          // Handle non-200 responses
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        return response.json(); // Attempt to parse JSON
+        return response.json();
       })
       .then(data => {
         if (data.status && data.data) {
@@ -42,9 +38,8 @@ const SubServices = () => {
   }, [serviceId]);
 
   const handleServiceClick = (id) => {
-    navigate(`/ServiceDetail/${id}`); // Ensure the path and ID are correct
+    navigate(`/ServiceDetail/${id}`);
   };
-  
 
   if (error) {
     return <div>Error: {error}</div>;
@@ -64,7 +59,6 @@ const SubServices = () => {
           <p>Loading services...</p>
         )}
       </div>
-    
     </div>
   );
 };

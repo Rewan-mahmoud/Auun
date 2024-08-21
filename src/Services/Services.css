@@ -8,7 +8,7 @@
   
   .card {
     width: 350px;
-    height: 400px;
+    height: auto;
     border-top: 10px solid #7940B1;
     background-color: white;
     border-radius: 10px;
@@ -53,7 +53,7 @@
     cursor: pointer;
     transition: background-color 0.3s;
     position: absolute;
-    bottom: 20px; /* Fixed position from the bottom of the card */
+    bottom: 9px; /* Fixed position from the bottom of the card */
     left: 50%;
     transform: translateX(-50%); /* Center the button horizontally */
   }
@@ -67,3 +67,9 @@
   .Services{
     margin-top: 170px;
   }
+  span{
+    font-family: "Cairo", sans-serif !important;
+ 
+  
+  }
+ 

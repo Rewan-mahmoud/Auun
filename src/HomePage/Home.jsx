@@ -18,7 +18,7 @@ const Home = () => {
     const [sliderData, setSliderData] = useState(null);
     const [howServeData, setHowServeData] = useState([]);
     const [faqData, setFaqData] = useState([]);
-
+    const [aboutData, setAboutData] = useState(null);
     useEffect(() => {
         // Fetch the slider data
         fetch('https://admin.auun.net/api/slider', {
@@ -39,7 +39,9 @@ const Home = () => {
           headers: {
               'lang': 'ar' 
           }
+          
       })
+      
             .then(response => {
                 if (response.data.status) {
                     setHowServeData(response.data.data);
@@ -59,6 +61,19 @@ const Home = () => {
                 }
             })
             .catch(error => console.error('Error fetching FAQ data:', error));
+            axios.get('https://admin.auun.net/api/about' , {
+                headers: {
+                    'lang': 'ar' // Request Arabic language
+                  }
+            })
+                .then(response => {
+                    if (response.data.status) {
+                        setAboutData(response.data.data);
+                    }
+                })
+                .catch(error => {
+                    console.error("Error fetching about data:", error);
+                });
     }, []);
 
     const toggleFAQ = (index) => {
@@ -92,30 +107,25 @@ const Home = () => {
             <SliderComponent />
             <Services />
 
-            <div className="container">
-                <div className="row">
-                    <div className="service-section"></div>
-
+               {/* About Section */}
+               <div className="container">
+                <div className="d-flex ">
                     <div className="col-md-6">
                         <div className="details">
                             <p>من نحن</p>
-
-                            <h1 className="service-title">عون المتميزة <br />
-                                للاستشارات المالية والاداريه المتكاملة</h1>
-                            <p className="service-description">
-                                شركة رائدة في مجال الاستشارات المالية والادارية و تطوير الاعمال في السوق السعودي وتضم عون فريق من المحترفين الحاصلين علي شهادات علمية ومهنية دولية وخبرات فنية
-                            </p>
-
+                            <h1 className="service-title">
+                                {aboutData ? aboutData.title : "Loading..."}
+                            </h1>
+                            <p className="service-description" dangerouslySetInnerHTML={{ __html: aboutData ? aboutData.description : "" }}></p>
                         </div>
                     </div>
                     <div className="col-md-6">
                         <div className="img3">
-                            <img src={img3} alt="Data Analysis Illustration" />
+                            <img src={aboutData ? `https://admin.auun.net/${aboutData.image}` : ""} alt="About Us Illustration" />
                         </div>
                     </div>
                 </div>
             </div>
-
             <div className='howWork'>
                 <h1 className='title text-center'>
                     كيف تعمل عون ؟

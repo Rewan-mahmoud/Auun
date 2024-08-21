@@ -5,7 +5,7 @@
   
   .service-title {
     color: #3a2e76; /* Dark purple color */
-    font-size: 50px;
+    font-size: 38px;
     font-weight: 700;
     margin-bottom: 30px;
   }
@@ -21,7 +21,7 @@
     height: 429px;
   }
   .details{
-    width: 581px;
+    width:100%;
     padding: 140px 0px;
 line-height: 45.53px;
 font-size: 24px;

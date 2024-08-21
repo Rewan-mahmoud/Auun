@@ -15,7 +15,7 @@ import ContactForm from '../ContactForm/ContactForm';
 const Contact = () => {
     return (
         <>
-    <div className="contact">
+    <div className="contact ">
   
     <div className='ContactUs'>
 
@@ -30,10 +30,13 @@ const Contact = () => {
       
 
         </div>
-     <ContactForm/>
+        <div className="mt-5">
+        <ContactForm/>
+        </div>
+
 
         <div className="container text-center info mb-5">
-        <div className="row">
+        <div className="d-flex">
           <div className="col-md-4">
           <div className="phone-contact">
         <div className="phone-icon">

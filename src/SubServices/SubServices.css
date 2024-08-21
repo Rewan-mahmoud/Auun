@@ -51,17 +51,17 @@
   }
   
   .serviceCard-button:hover {
-    background-color: #5A54D9; /* Darker purple on hover */
+    background-color: #5A54D9; 
   }
   @media (max-width: 768px) {
     .serviceCardContainer {
-      grid-template-columns: repeat(2, 1fr); /* Two columns for medium screens */
+      grid-template-columns: repeat(2, 1fr);
     }
   }
   
   @media (max-width: 480px) {
     .serviceCardContainer {
-      grid-template-columns: 1fr; /* One column for small screens */
+      grid-template-columns: 1fr;
     }
   }
   
@@ -72,4 +72,132 @@
   
   .icon2 {
     margin-top: 135px;
+  }
+
+  .mx-auto{
+    margin: 0 auto; 
+    padding: 20px;
+    width: 50%;
+    text-align: center;
+  }
+
+  .governanceImage-container {
+
+    padding: 20px;
+    border-radius: 12px;
+    display: inline-block;
+  }
+
+  .governance-image {
+    width: 100%;
+    position: relative;
+    height: 70%;
+    border-radius: 12px;
+    margin-top: 100px;
+  }
+  .governanceImageLayer{
+    background-color: #311356;
+    position: absolute;
+    width: 100%;
+    border-radius: 64px;
+    height: 100%;
+   left: 10px;
+  }
+  .governance-title {
+    font-size: 24px;
+    font-weight: bold;
+
+    margin-top: 50px;
+    color: #311356; 
+  }
+
+  .governanceImageLayer {
+    background-color: #311356;
+    position: absolute;
+    width: 100%;
+    border-radius: 64px;
+    height: 75%;
+    left: 10px;
+}
+  .services-container {
+    padding: 20px;
+    text-align: right;
+  }
+
+  .services-list {
+    list-style-type: none; 
+    padding: 0;
+    margin: 0;
+  }
+
+  .service-item {
+    font-size: 18px;
+    margin-bottom: 10px;
+    position: relative;
+    padding-right: 25px;
+    line-height: 1.6;
+  }
+
+  .service-item::before {
+    content: '•';
+    position: absolute;
+    right: 0;
+    font-size: 24px;
+    color: #311356; 
+  }
+  .governanceForm{
+    width: 50%;
+  }
+  @media (max-width: 1200px) {
+
+  
+    .governanceForm {
+      width: 70%; /* Adjust form width */
+    }
+  }
+  
+  /* Small screens (up to 768px) */
+  @media (max-width: 768px) {
+    .mx-auto {
+      width: 90%; /* Adjust width for small screens */
+      padding: 15px;
+    }
+  
+    .governanceForm {
+      width: 90%; /* Adjust form width */
+      padding: 15px;
+    }
+  
+    .governance-title {
+      font-size: 20px; /* Adjust font size */
+    }
+  
+    .governance-description {
+      font-size: 16px; /* Adjust font size */
+      margin-top: 15px;
+      margin-bottom: 40px;
+    }
+  }
+  
+  /* Extra small screens (up to 480px) */
+  @media (max-width: 480px) {
+    .mx-auto {
+      width: 95%; /* Almost full-width for mobile screens */
+      padding: 10px;
+    }
+  
+    .governanceForm {
+      width: 95%; /* Adjust form width */
+      padding: 10px;
+    }
+  
+    .governance-title {
+      font-size: 18px; /* Smaller font size for titles */
+    }
+  
+    .governance-description {
+      font-size: 14px; /* Smaller font size for descriptions */
+      margin-top: 10px;
+      margin-bottom: 30px;
+    }
   }

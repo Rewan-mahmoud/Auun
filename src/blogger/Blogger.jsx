@@ -78,6 +78,15 @@ const Blogger = () => {
     setActiveCategoryId(catId);
   };
 
+  // Function to limit the text to 10 lines
+  const getTextWithLimitedLines = (text, maxLines = 5) => {
+    const lines = text.split('\n'); // Split the text by lines
+    if (lines.length <= maxLines) {
+      return text; // If the text has less than or equal to 10 lines, return it as is
+    }
+    return lines.slice(0, maxLines).join('\n') + '...'; // Return the first 10 lines with ellipsis
+  };
+
   return (
     <>
       <div className="background blogger">
@@ -132,8 +141,8 @@ const Blogger = () => {
                   imgSrc={`https://admin.auun.net${blog.image}`}
                   circleSrc={circle}
                   title={blog.title}
-                  date={new Date().toLocaleDateString()} // You might want to use the actual date if available
-                  text={blog.description.replace(/<[^>]+>/g, '')} // Stripping HTML tags from description
+                  date={new Date().toLocaleDateString()} 
+                  text={getTextWithLimitedLines(blog.description.replace(/<[^>]+>/g, ''))}
                 />
               </div>
             ))
