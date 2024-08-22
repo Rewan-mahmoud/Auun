@@ -211,12 +211,12 @@ html, body {
   }
 
   
-.more-button{
+/* .more-button{
   padding: 21px 76px !important;
   border-radius: 5px !important;
   font-size: 1.9rem !important;
   margin-top: 20px;
-}
+} */
 }
 
 @media (min-width: 1796px) {
@@ -316,3 +316,18 @@ html, body {
     height: 30px;
   }
 }
+/* @media (min-width: 1417px) {
+ 
+  .nav-link {
+    margin: 40px 45px;
+
+    font-size: 25px;
+  }
+  .logo {
+    height: 100px;
+    width: 100px;}
+    .navbar {
+      height: 150px;
+    }
+
+} */

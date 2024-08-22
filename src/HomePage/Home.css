@@ -1,108 +1,177 @@
 
 
 .faq-container {
-    max-width: 1240px;
-    margin: 50px auto;
-    padding: 90px;
-    margin-bottom: 100px;
-    background: linear-gradient(90deg, #8124BD 0%, #674A92 50%, #311356 100%);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 1240px;
+  margin: 50px auto;
+  padding: 60px 20px; /* Adjusted for better responsiveness */
+  margin-bottom: 100px;
+  background: linear-gradient(90deg, #8124BD 0%, #674A92 50%, #311356 100%);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 .faq-header {
-    font-size: 30px;
-    margin-bottom: 40px;
-    color: white;
-    text-align: center;
-    font-weight: bold;
+  font-size: 30px;
+  margin-bottom: 40px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
 }
 
 .faq-item {
-    background-color: #ffffff;
-    color: #000000;
-    width: 1000px;
-    margin-bottom: 10px;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  color: #000000;
+  width: 100%; /* Changed from fixed width to full width */
+  margin-bottom: 10px;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .faq-question {
-    padding: 15px;
-    font-size: 18px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f0f0f0;
-    font-weight: bold;
-    border-bottom: 1px solid #e0e0e0;
+  padding: 15px;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f0f0;
+  font-weight: bold;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .faq-answer {
-    display: none;
-    padding: 15px;
-    font-size: 16px;
+  display: none;
+  padding: 15px;
+  font-size: 16px;
 }
 
 .faq-item.active .faq-answer {
-    display: block;
+  display: block;
 }
   
 .how-it-works {
-    background: #311356;
-    color: white;
-    padding: 90px 20px;
-    text-align: center;
-    margin-bottom: 100px;
-  }
-  
-  .how-it-works-title {
-    font-size: 2rem;
-    margin-bottom: 30px;
-  }
-  
-  .steps-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-  }
-  
+  background: #311356;
+  color: white;
+  padding: 90px 20px;
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.how-it-works-title {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.steps-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px; /* Ensure spacing between cards */
+}
+
+.step-card {
+  background: white;
+  color: #311356;
+  border-radius: 10px;
+  width: 30%;
+  min-width: 250px; /* Ensure a minimum width for smaller screens */
+  padding: 20px;
+  margin: 10px;
+  position: relative;
+  text-align: right;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease; /* Add a smooth transform transition */
+}
+
+.step-card:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+}
+
+.step-number {
+  background: #674A92;
+  color: white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  font-size: 1.2rem;
+}
+
+.step-title {
+  font-size: 1.5rem;
+  margin: 20px 0;
+}
+
+.step-description {
+  font-size: 1rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
   .step-card {
-    background: white;
-    color: #311356;
-    border-radius: 10px;
-    width: 30%;
-    padding: 20px;
-    margin: 10px;
-    position: relative;
-    text-align: right;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      width: 45%; /* Adjust width for tablets */
   }
-  
-  .step-number {
-    background: #674A92;
-    color: white;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: -15px;
-    right: -15px;
-    font-size: 1.2rem;
-  }
-  
+
   .step-title {
-    font-size: 1.5rem;
-    margin: 20px 0;
+      font-size: 1.4rem; /* Slightly reduce font size */
   }
-  
+
   .step-description {
-    font-size: 1rem;
+      font-size: 0.95rem; /* Slightly reduce font size */
   }
+}
+
+@media (max-width: 768px) {
+  .step-card {
+      width: 100%; /* Full width on smaller screens */
+      margin: 15px 0; /* Add vertical spacing */
+  }
+
+  .step-title {
+      font-size: 1.3rem; /* Adjust font size for small screens */
+  }
+
+  .step-description {
+      font-size: 0.9rem; /* Adjust font size for small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .how-it-works {
+      padding: 60px 10px; /* Reduce padding for small screens */
+  }
+
+  .how-it-works-title {
+      font-size: 1.8rem; /* Adjust title size */
+  }
+
+  .step-card {
+      width: 100%; /* Full width on small screens */
+      padding: 15px; /* Reduce padding */
+  }
+
+  .step-title {
+      font-size: 1.2rem; /* Further reduce font size */
+  }
+
+  .step-description {
+      font-size: 0.85rem; /* Further reduce font size */
+  }
+
+  .step-number {
+      width: 25px; /* Adjust number size */
+      height: 25px;
+      font-size: 1rem;
+  }
+}
+
   .howWork img {
     padding-bottom: 60px;
   }
@@ -157,11 +226,12 @@
   .overlay-text {
     position: absolute;
     top: 63%;
-    left: 64%;
+    width: 40%;
+    left: 60%;
+
     transform: translate(0%, -50%);
     color: white;
     text-align: center;
-    padding: 20px;
   }
   
   .overlay-text h1 {
@@ -190,8 +260,7 @@
   }
 
   @media (min-width: 1795px) {
-   
-  
+
     .overlay-text p {
       font-size: 2rem;
     }
@@ -206,7 +275,7 @@
 font-size: 30px;
 }
 .Services .card-description, span {
-  font-size: 23px;
+  font-size: 26px;
 }
 .service-title {
   font-size: 66px;
@@ -267,8 +336,8 @@ font-size: 30px;
     
     }
     .card-title {
-      font-size: 2em;
-    }  
+      font-size: 3em;
+  }
     .card {
       width: 385px;}
     .faq-container {
@@ -316,23 +385,12 @@ font-size: 30px;
 .titles h1 {
     font-size: 5.5rem;
 }
-.phone-info h2 {
-  font-size: 3.5em;}
 
 
 .titles p {
     font-size: 2.2rem;
 }
-.phone-contact {
-  width: 551px;
-  padding: 38px
-  }
-  .phone-icon img {
-    width: 94px;
-  }
-  .phone-info p {
-    font-size: 2em;
-  }
+
 .map iframe {
     width: 100% !important;
 }
@@ -367,7 +425,7 @@ font-size: 30px;
   .input-with-icon .fa-magnifying-glass {
     width: 51px !important;
     height: 60px !important; 
-    right: 25.75rem !important;
+    right: 0.78rem !important;
     top: 52% !important;
 }
 .input-with-icon input {
@@ -375,7 +433,7 @@ font-size: 30px;
 
 }
 .overlay-text h1 {
-  font-size: 90px !important;
+  font-size: 70px ;
 }
 
 .BloggerCard span {
@@ -399,21 +457,7 @@ font-size: 30px;
  font-size: 30px;
 }
 
-.governance-image {
 
-  margin-top: 230px !important;
-}
-.governance-title {
-  font-size: 60px !important;
-  margin: 60px 0px;
-
-}
-.mx-auto {
-  width: 70% !important;
-}
-.governance-description span{
-  font-size: 35px !important;
-}
 .serviceCard-button {
   width: 183.89px !important;
   height: 77px !important;
@@ -425,16 +469,150 @@ font-size: 30px;
 }
 .card{
   height: 632px !important;
-}
-}
 
-
-
-@media (min-width: 2942px) {
-  .phone-contact {
-    width: 748px;
-    margin-right: 120px;
-}
-
+    width: 513px;
 
 }
+.slide-item img{
+height: 270px;
+}
+.card-grid 
+{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(575px, 5fr));
+}
+
+
+}
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+  .faq-container {
+      padding: 40px 15px;
+  }
+
+  .faq-header {
+      font-size: 24px;
+      margin-bottom: 30px;
+  }
+
+  .faq-question {
+      font-size: 16px;
+      padding: 12px;
+  }
+
+  .faq-answer {
+      font-size: 14px;
+      padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .faq-container {
+      padding: 30px 10px;
+  }
+
+  .faq-header {
+      font-size: 20px;
+      margin-bottom: 20px;
+  }
+
+  .faq-question {
+      font-size: 14px;
+      padding: 10px;
+  }
+
+  .faq-answer {
+      font-size: 12px;
+      padding: 10px;
+  }
+}
+@media (max-width: 1248px) {
+  .howWork img{
+width: 70%;
+}
+
+
+
+}
+/* MOBILEVIEWWW */
+@media (min-width: 375px) and (max-width: 1199px){
+  .overlay-text {
+    top: 54%;
+    width: 100%;
+    left: 0%;
+}
+.fixed-icons {
+  top: 74% !important;
+}
+.slick-dots{
+  display: none !important;
+}
+.howWork img {
+  width: 100%;
+}
+
+.service-image img {
+  width: 360px;
+  height: 360px;
+}
+.ContactUs .titles{
+  top: 53%;
+  left: 50%;
+  width: 100%;
+  
+}
+.logo {
+  height: 50px;
+  width: 44px;
+}
+.open{
+  font-size: 17px;
+}
+
+}
+@media (min-width: 375px) and (max-width: 751px){
+  .content-container h2 {
+
+    font-size: 23px !important;
+  }
+  .content-container span {
+    font-size: 12px;
+  }
+  .financial-consultation {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .content-container {
+    max-width: 100%;
+    margin-top: 20px;
+  }
+  
+  .image-container {
+    order: -1; /* Moves the image before the content in the DOM */
+    margin-bottom: 20px;
+  }
+}
+/* @media (max-width: 1782px) {
+  .overlay-text{
+    left: 57%;
+  }
+  .overlay-text h1 {
+    font-size: 4.5rem;
+    
+  }
+  .overlay-text p {
+    font-size: 1.8rem;
+  }
+  .more-button {
+  
+    padding: 14px 60px;
+    font-size: 1.5rem;
+  }
+} */

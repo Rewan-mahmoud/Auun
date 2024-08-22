@@ -187,7 +187,7 @@ const OfferPrice = () => {
                 </div>
                 <div className="map-container map text-center my-5">
                     <iframe
-                        className="map-iframe"
+                        className="-iframe"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2085674.3596422914!2d43.350693829035926!3d23.88594289122369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x155eebcd95fd30b9%3A0x7ff7e9a9a2c2e833!2sSaudi%20Arabia!5e0!3m2!1sen!2sus!4v1690721966400!5m2!1sen!2sus"
                         allowFullScreen=""
                         loading="lazy"

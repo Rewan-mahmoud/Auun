@@ -29,23 +29,34 @@
   }
   
 
-.input-with-icon {
+  .input-with-icon {
     position: relative;
+    width: 100%;
+    max-width: 900px; 
+    margin: 20px auto; 
   }
   
   .input-with-icon input {
-    padding-right: 3rem; /* Make space for the icon */
+    width: 100%; 
+    padding-right: 3rem; 
+    padding-left: 1rem; 
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 16px;
+    border: 2px solid #311356;
+    box-sizing: border-box; 
   }
   
   .input-with-icon .fa-magnifying-glass {
     position: absolute;
-    right: 0.75rem;
-    top: 60%;
+    right: 0.9rem; 
+    top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
     width: 21px;
     height: 22px;
-}
+  }
+  
 
   /* NavigationMenu.css */
 .blogger .nav-link {
@@ -60,23 +71,15 @@
     list-style-type: none;
     padding: 0;
     gap: 15px;
+    margin-top: 50px;
   }
   
   .input-with-icon {
     position: relative;
     width: 100%; 
   }
-  .input-with-icon input {
-    width: calc(100% - 50rem);
-    padding-right: 3rem;
-  }  
 
-  .fa-magnifying-glass {
-    position: absolute;
-    right: 0.75rem;
-    top: 50%;
-    transform: translateY(-50%);
-  }
+
   .overlayy-text {
     z-index: 10;
   }
@@ -175,3 +178,39 @@ ul{
 }
 
 
+@media (max-width: 768px) {
+  .input-with-icon {
+    max-width: 90%; /* Reduce max-width for tablets */
+  }
+
+  .input-with-icon input {
+    font-size: 14px; /* Adjust font size for smaller screens */
+    padding-right: 2.5rem; /* Adjust padding for smaller screen */
+  }
+
+  .input-with-icon .fa-magnifying-glass {
+    width: 18px;
+    height: 18px; /* Adjust icon size for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .input-with-icon {
+    max-width: 100%; /* Full width on very small screens */
+  }
+
+  .input-with-icon input {
+    font-size: 12px; /* Further reduce font size for very small screens */
+    padding-right: 2rem; /* Adjust padding for very small screens */
+  }
+
+  .input-with-icon .fa-magnifying-glass {
+    width: 16px;
+    height: 16px; /* Further adjust icon size for very small screens */
+  }
+}
+@media (max-width: 1382px) {
+  .BloggerCard .card-title {
+    font-size: 23px;
+  }
+}

@@ -48,15 +48,20 @@ const SubServiceDetail = () => {
 
   return (
     <div className="governance-container">
-      <div className="mx-auto">
-        <div className="governanceImageLayer"></div>
-        <div className="governanceImage">
-          <img src={`https://admin.auun.net/${subService.image}`} alt={subService.title} className="governance-image" />
-        </div>
-        <h3 className="governance-title">{subService.title}</h3>
-        <p className="governance-description" dangerouslySetInnerHTML={{ __html: subService.description }}></p>
-      </div>
-      <div className="container governanceForm">
+    <div class="financial-consultation">
+    
+    <div class="content-container">
+    <h2 className="service-title">{subService.title}</h2>
+    <p className="" dangerouslySetInnerHTML={{ __html: subService.description }}></p>
+    </div>
+    <div class="image-container">
+    <img src={`https://admin.auun.net/${subService.image}`} alt={subService.title} />
+    </div>
+</div>
+
+
+      <div className="container ">
+        <h2 className='text-center title'>أرسل رسائلك عبر هذا النموذج</h2>
         <div className="contact mb-5">
           <div className="form-container">
             <form action="#" method="post">

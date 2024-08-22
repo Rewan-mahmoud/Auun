@@ -65,7 +65,7 @@ const ContactForm = () => {
   return (
     <div className="container">
       <h1 className='title'>أرسل رسائلك عبر هذا النموذج</h1>
-      <div className="d-flex justify-content-between py-5 formInfo">
+      <div className="row justify-content-between py-5 formInfo">
         <div className="col-md-6">
           <div className="form-container">
             <form onSubmit={handleSubmit}>

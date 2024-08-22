@@ -29,11 +29,34 @@ const SliderComponent = () => {
     slidesToShow: 3, 
     slidesToScroll: 1,
     centerMode: true,
-    centerPadding: '0px',
+    centerPadding: '20px',
     arrows: true,
     autoplay: true,
     autoplaySpeed: 1500,
     initialSlide: initialSlideIndex, // Start with the middle slide
+    responsive: [
+      {
+        breakpoint: 1024, // For screens up to 1024px wide
+        settings: {
+          slidesToShow: 2, // Show 2 slides
+          centerPadding: '20px', // Adjust padding
+        }
+      },
+      {
+        breakpoint: 768, // For screens up to 768px wide
+        settings: {
+          slidesToShow: 1, // Show 1 slide
+          centerPadding: '20px', // Adjust padding
+        }
+      },
+      {
+        breakpoint: 480, // For screens up to 480px wide
+        settings: {
+          slidesToShow: 1, // Show 1 slide
+          centerPadding: '0px', // Remove padding for small screens
+        }
+      }
+    ]
   };
 
   return (

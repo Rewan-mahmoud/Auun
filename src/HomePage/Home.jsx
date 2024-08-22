@@ -109,7 +109,7 @@ const Home = () => {
 
                {/* About Section */}
                <div className="container">
-                <div className="d-flex ">
+                <div className="row ">
                     <div className="col-md-6">
                         <div className="details">
                             <p>من نحن</p>
@@ -126,6 +126,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+            <div className="container">
             <div className='howWork'>
                 <h1 className='title text-center'>
                     كيف تعمل عون ؟
@@ -136,6 +137,8 @@ const Home = () => {
                     <img src={group} alt="" />
                 </div>
             </div>
+            </div>
+     
 
             <div className="how-it-works">
                 <h2 className="how-it-works-title">كيف يمكنك طلب خدمة من عون؟</h2>
