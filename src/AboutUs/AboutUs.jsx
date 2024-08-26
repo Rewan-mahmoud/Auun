@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import {  Link } from 'react-router-dom';
 import './AboutUs.css';
-import email from '../assest/Component 53.svg';
-import whatsapp from '../assest/Component 54.svg';
-import call from '../assest/Component 55.svg';
+
 
 const AboutUs = () => {
     const [aboutData, setAboutData] = useState(null);
@@ -89,7 +88,7 @@ const AboutUs = () => {
                         <h1 className="service-title">
                             {missionData ? missionData.title : "Loading..."}
                         </h1>
-<p>نقوم باستخدام احدث الاساليب و الحلول التقنية والمهنية في تقديم الخدمات الفاعلة في مجالنا</p>                    </div>
+        <p>نقوم باستخدام احدث الاساليب و الحلول التقنية والمهنية في تقديم الخدمات الفاعلة في مجالنا</p>                    </div>
                     <div className="col-md-7">
                         <div className="details">
                         <p className="service-description" dangerouslySetInnerHTML={{ __html: missionData ? missionData.description : "" }}></p>

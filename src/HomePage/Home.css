@@ -103,7 +103,9 @@
   right: -15px;
   font-size: 1.2rem;
 }
-
+.BloggerCard .card-text{
+  color: #000000;
+}
 .step-title {
   font-size: 1.5rem;
   margin: 20px 0;
@@ -111,6 +113,9 @@
 
 .step-description {
   font-size: 1rem;
+}
+.priceOfferForm{
+  width: 70%;
 }
 
 /* Responsive Adjustments */
@@ -227,11 +232,9 @@
     position: absolute;
     top: 63%;
     width: 40%;
-    left: 60%;
-
+    left: 56%;
     transform: translate(0%, -50%);
     color: white;
-    text-align: center;
   }
   
   .overlay-text h1 {
@@ -244,7 +247,9 @@
     margin-bottom: 30px;
     line-height: 1.5;
   }
-  
+a{
+  text-decoration: none !important;
+}
   .more-button {
     background-color: #311356; /* Purple color */
     color: white;
@@ -335,6 +340,7 @@ font-size: 30px;
      margin-right: 25px; 
     
     }
+   
     .card-title {
       font-size: 3em;
   }
@@ -441,6 +447,7 @@ font-size: 30px;
 }
   .BloggerCard .card-text {
     font-size: 34px !important;
+
 }
 .BloggerCard .card-title {
   font-size: 32px !important;
@@ -546,6 +553,11 @@ width: 70%;
     top: 54%;
     width: 100%;
     left: 0%;
+    text-align: center;
+}
+  .overlay-text p {
+    font-size: 0.9rem;
+    padding: 0px 20px;
 }
 .fixed-icons {
   top: 74% !important;

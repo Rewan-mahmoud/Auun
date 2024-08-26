@@ -5,25 +5,18 @@ import circle from "../assest/Ellipse 1.svg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import Card from '../Cards/CardContainer';
-import email from '../assest/Component 53.svg';
-import whatsapp from '../assest/Component 54.svg';
-import call from '../assest/Component 55.svg';
+import { Link } from 'react-router-dom'; // Import Link
 
 const Blogger = () => {
   const [blogs, setBlogs] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [activeCategoryId, setActiveCategoryId] = useState(null); // Track the selected category
+  const [activeCategoryId, setActiveCategoryId] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     // Fetch categories data from the API
-    fetch('https://admin.auun.net/api/categories')  // Replace this with the correct endpoint if needed
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-      })
+    fetch('https://admin.auun.net/api/categories')
+      .then(response => response.json())
       .then(data => {
         if (data.status && data.data) {
           setCategories(data.data);
@@ -36,55 +29,40 @@ const Blogger = () => {
         setError(error.message);
       });
 
-    // Fetch all blogs initially or when activeCategoryId changes
-    if (activeCategoryId !== null) {
-      fetch('https://admin.auun.net/api/cat_blogs', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'lang':'ar'
-        },
-        body: JSON.stringify({ cat_id: activeCategoryId }),
+    // Fetch blogs based on category selection
+    const endpoint = activeCategoryId !== null ? 'https://admin.auun.net/api/cat_blogs' : 'https://admin.auun.net/api/all_blog';
+    fetch(endpoint, {
+      method: activeCategoryId !== null ? 'POST' : 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'lang':'ar'
+      },
+      body: activeCategoryId !== null ? JSON.stringify({ cat_id: activeCategoryId }) : undefined,
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.status && data.data) {
+          setBlogs(data.data);
+        }
       })
-        .then(response => response.json())
-        .then(data => {
-          if (data.status && data.data) {
-            setBlogs(data.data);
-          } else {
-            throw new Error('Failed to load blogs');
-          }
-        })
-        .catch(error => {
-          console.error('Error fetching the blog data:', error);
-          setError(error.message);
-        });
-    } else {
-      // Fetch all blogs if no category is selected
-      fetch('https://admin.auun.net/api/all_blog'
-       
-      )
-        .then(response => response.json())
-        
-        .then(data => {
-          if (data.status && data.data) {
-            setBlogs(data.data);
-          }
-        })
-        .catch(error => console.error('Error fetching the blog data:', error));
-    }
+      .catch(error => console.error('Error fetching the blog data:', error));
   }, [activeCategoryId]);
 
   const handleCategoryClick = (catId) => {
-    setActiveCategoryId(catId);
+    // Toggle the active category between the selected category and null
+    if (activeCategoryId === catId) {
+      setActiveCategoryId(null);
+    } else {
+      setActiveCategoryId(catId);
+    }
   };
 
-  // Function to limit the text to 10 lines
-  const getTextWithLimitedLines = (text, maxLines = 5) => {
-    const lines = text.split('\n'); // Split the text by lines
+  const getTextWithLimitedLines = (text, maxLines = 2) => {
+    const lines = text.split('\n');
     if (lines.length <= maxLines) {
-      return text; // If the text has less than or equal to 10 lines, return it as is
+      return text;
     }
-    return lines.slice(0, maxLines).join('\n') + '...'; // Return the first 10 lines with ellipsis
+    return lines.slice(0, maxLines).join('\n') + '...';
   };
 
   return (
@@ -137,13 +115,15 @@ const Blogger = () => {
           {blogs.length > 0 ? (
             blogs.map((blog) => (
               <div className="col-md-6 cardGap" key={blog.id}>
-                <Card
-                  imgSrc={`https://admin.auun.net${blog.image}`}
-                  circleSrc={circle}
-                  title={blog.title}
-                  date={new Date().toLocaleDateString()} 
-                  text={getTextWithLimitedLines(blog.description.replace(/<[^>]+>/g, ''))}
-                />
+                <Link to={`/blog/${blog.id}`}>
+                  <Card
+                    imgSrc={`https://admin.auun.net${blog.image}`}
+                    circleSrc={circle}
+                    title={blog.title}
+                    date={new Date().toLocaleDateString()} 
+                    text={getTextWithLimitedLines(blog.description.replace(/<[^>]+>/g, ''))}
+                  />
+                </Link>
               </div>
             ))
           ) : (

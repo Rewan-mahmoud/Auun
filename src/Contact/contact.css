@@ -164,6 +164,7 @@ border:2px solid #1C75B8 !important;
 .form-container {
     height:auto;
     margin: auto;
+   
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -209,7 +210,8 @@ border:2px solid #1C75B8 !important;
   
  
 .vector img{
-  /* margin-right: 40px; */
+    height: 550px;
+    object-fit: contain;
   width: 100%;
 
 }  
@@ -299,25 +301,29 @@ border:2px solid #1C75B8 !important;
     width: 17% !important;
 
   }
+  .governance{
+    width: 50%;
+  }
   /* Responsive Adjustments */
 @media (min-width: 1440px) {
   .phone-contact {
-      max-width: 500px; /* Increase max width for larger screens */
+    max-width: 426px; /* Increase max width for larger screens */
       
   }
   
   .phone-icon img {
     margin-right: 0; /* Remove margin when stacked */
     margin-bottom: 10px; /* Add space below the icon */
-    width: 60px;
+    width: 50px;
+    margin-left: 20px
 }
 
 .phone-info h2 {
-    font-size: 2.3em; /* Adjust title size */
+    font-size: 2em; /* Adjust title size */
 }
 
 .phone-info p {
-    font-size: 1.6em; /* Adjust font size */
+    font-size: 1em; /* Adjust font size */
 }
 }
 

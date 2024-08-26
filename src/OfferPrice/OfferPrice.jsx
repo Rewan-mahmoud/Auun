@@ -13,7 +13,8 @@ const OfferPrice = () => {
         phone: '',
         company_name: '',
         messageType: '',
-        message: ''
+        message: '',
+        service_id:''
     });
 
     const handleChange = (e) => {
@@ -57,7 +58,7 @@ const OfferPrice = () => {
                         </div>
                     </div>
                 </div>
-                <div className="container mb-5">
+                <div className="container priceOfferForm mb-5">
                     <h1 className='text-center title'>أرسل طلبك عبر هذا النموذج</h1>
                     <div className="form-container">
                         <form onSubmit={handleSubmit}>
@@ -129,7 +130,22 @@ const OfferPrice = () => {
                             </div>
                             <div className="form-group">
                                 <label htmlFor="messageType">الخدمات</label>
-                               <input type="text" />
+                                <select 
+                                    id="service_id" 
+                                    name="service_id" 
+                                    value={formData.service_id} 
+                                    onChange={handleChange}
+                                    required
+                                >
+                                    <option value="">اختر خدمة</option>
+                                    <option value="1">الإستشارات المالية</option>
+                                    <option value="2">الإستشارات الإدارية</option>
+                                    <option value="3">خدمات المستثمرين</option>
+                                    <option value="4">الحلول التقنية والبرامج المحاسبية</option>
+                                    <option value="5">تطوير الاعمال والتخطيط الاستراتيجي</option>
+                                    <option value="6">خدمات مع شركائنا</option>
+                                    <option value="7">الحوكمة</option>
+                                </select>
                             </div>
                   
                             <div className="form-group">

@@ -8,9 +8,9 @@ import location from '../assest/1.png';
 import email from '../assest/Component 53.svg';
 import whatsapp from '../assest/Component 54.svg';
 import call from '../assest/Component 55.svg';
-
-import './contact.css';
 import ContactForm from '../ContactForm/ContactForm';
+import './contact.css';
+
 
 const Contact = () => {
     return (
@@ -30,7 +30,7 @@ const Contact = () => {
       
 
         </div>
-        <div className="mt-5">
+        <div className=" contact mt-5">
         <ContactForm/>
         </div>
 

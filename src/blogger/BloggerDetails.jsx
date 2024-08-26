@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-const SubServiceDetail = () => {
+const BloggerDetails = () => {
   const { id } = useParams();
-  const [subService, setSubService] = useState(null);
+  const [blogg, setBlogg] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Fetch the sub service detail data from the API
-    fetch(`https://admin.auun.net/api/show_sub_service/${id}`, {
+    fetch(`https://admin.auun.net/api/show_blog/${id}`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json', // Ensure correct content type
-        'lang': 'ar' // Assuming the API expects the 'lang' header for Arabic content
+        'Content-Type': 'application/json', 
+        'lang': 'ar' 
       }
     })
       .then(response => {
@@ -24,14 +23,14 @@ const SubServiceDetail = () => {
       })
       .then(data => {
         if (data.status && data.data) {
-          setSubService(data.data); // Assuming data is an object containing the sub-service details
+          setBlogg(data.data); 
         } else {
           throw new Error(data.message || 'Invalid data structure');
         }
       })
       .catch(error => {
-        console.error('Error fetching sub service detail:', error);
-        setError('The requested service could not be found or the endpoint is incorrect.');
+        console.error('Error fetching blog detail:', error);
+        setError('The requested blog could not be found or the endpoint is incorrect.');
       });
   }, [id]);
 
@@ -39,26 +38,25 @@ const SubServiceDetail = () => {
     return <div>Error: {error}</div>;
   }
 
-  if (!subService) {
+  if (!blogg) {
     return <div>Loading...</div>;
   }
 
   return (
     <div className="governance-container">
-    <div class="financial-consultation">
-    
-    <div class="content-container">
-    <h2 className="service-title">{subService.title}</h2>
-    <p className="" dangerouslySetInnerHTML={{ __html: subService.description }}></p>
-    </div>
-    <div class="image-container">
-    <img src={`https://admin.auun.net/${subService.image}`} alt={subService.title} />
-    </div>
-</div>
+      <div className="financial-consultation">
+        <div className="content-container">
+        <div className="image-container">
+          <img src={`https://admin.auun.net/${blogg.image}`} alt={blogg.title} />
+        </div>
+          <h2 className="service-title">{blogg.title}</h2>
+          <p dangerouslySetInnerHTML={{ __html: blogg.description }}></p>
+        </div>
+        
+      </div>
 
-
-      <div className="container governance ">
-        <h2 className='text-center title'>أرسل رسائلك عبر هذا النموذج</h2>
+      <div className="container governance">
+        <h2 className="text-center title">أرسل رسائلك عبر هذا النموذج</h2>
         <div className="contact mb-5">
           <div className="form-container">
             <form action="#" method="post">
@@ -91,7 +89,7 @@ const SubServiceDetail = () => {
                 </div>
                 <div className="col-md-6">
                   <div className="form-group">
-                    <label htmlFor="messageType">اسم الشركة </label>
+                    <label htmlFor="messageType">اسم الشركة</label>
                     <input type="text" placeholder='اسم الشركة' />
                   </div>
                 </div>
@@ -105,9 +103,8 @@ const SubServiceDetail = () => {
           </div>
         </div>
       </div>
-      
     </div>
   );
 };
 
-export default SubServiceDetail;
+export default BloggerDetails;

@@ -7,8 +7,8 @@ const ContactForm = () => {
     name: '',
     email: '',
     phone: '',
-    messageType: '',
-    message: ''
+    mestype: '',  // Changed from messageType to mestype
+    mes: ''       // Changed from message to mes
   });
 
   useEffect(() => {
@@ -38,14 +38,15 @@ const ContactForm = () => {
     fetch('https://admin.auun.net/api/add_contact', {
       method: 'POST',
       headers: {
+        'Accept': 'application/json',
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
-        mestype: formData.messageType,
-        mes: formData.message,
+        mestype: formData.mestype, // This now matches the key expected by the API
+        mes: formData.mes,         // This now matches the key expected by the API
       })
     })
       .then(response => response.json())
@@ -122,11 +123,11 @@ const ContactForm = () => {
                 </div>
                 <div className="col-md-6">
                   <div className="form-group">
-                    <label htmlFor="messageType">نوع الرسالة</label>
+                    <label htmlFor="mestype">نوع الرسالة</label> {/* Updated name attribute */}
                     <select
-                      id="messageType"
-                      name="messageType"
-                      value={formData.messageType}
+                      id="mestype"
+                      name="mestype"  // Updated name attribute
+                      value={formData.mestype}
                       onChange={handleChange}
                       required
                       dir="rtl"
@@ -145,13 +146,13 @@ const ContactForm = () => {
                 </div>
               </div>
               <div className="form-group">
-                <label htmlFor="message">الرسالة</label>
+                <label htmlFor="mes">الرسالة</label> {/* Updated name attribute */}
                 <textarea
-                  id="message"
+                  id="mes"  // Updated id attribute
                   rows={5}
-                  name="message"
+                  name="mes"  // Updated name attribute
                   placeholder="اكتب هنا"
-                  value={formData.message}
+                  value={formData.mes}
                   onChange={handleChange}
                   required
                 ></textarea>

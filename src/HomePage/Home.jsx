@@ -3,15 +3,10 @@ import SliderComponent from '../Slider/SliderComponent';
 import Services from '../Services/Services';
 import img3 from "../assest/Group 1000007035.png";
 import './Home.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import group from '../assest/Group 295 (1).png';
-
 import ContactForm from '../ContactForm/ContactForm';
 import axios from 'axios';
-import FixedIcons from '../FixedIcons/FixedIcons';
+
 
 const Home = () => {
     const [activeIndex, setActiveIndex] = useState(null);
@@ -158,7 +153,7 @@ const Home = () => {
             </div>
 
             <div className="faq-container">
-                <div className="faq-header">الأسئلة المتكررة</div>
+                <div className="faq-header">الأسئلة الشائعة</div>
                 {faqData.length > 0 ? (
                     faqData.map((item, index) => (
                         <div key={item.id} className={`faq-item ${activeIndex === index ? 'active' : ''}`}>

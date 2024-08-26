@@ -16,6 +16,7 @@ import SubServiceDetail from './SubServiceDetail/SubServiceDetail';
 import Reservation from './Reservation/Reservation';
 import ContactForm from './ContactForm/ContactForm';
 import FixedIcons from './FixedIcons/FixedIcons';
+import BloggerDetails from './blogger/BloggerDetails';
 function App() {
   return (
     <>
@@ -24,7 +25,7 @@ function App() {
     {<Routes>
       <Route path="/" element={<Home />} />
       <Route path="Home" element={<Home />} />
-      <Route path="Services" element={<Services />} />
+      <Route path="/Services" element={<Services />} />
       <Route path="/Blogger" element={<Blogger />} /> 
       <Route path="/Contact" element={<Contact />} />
       <Route path="/OfferPrice" element={<OfferPrice />} />
@@ -33,6 +34,7 @@ function App() {
       <Route path="/Reservation" element={<Reservation />} />
       <Route path="/ContactForm" element={<ContactForm />} />
       <Route path="/ServiceDetail/:id" element={<SubServiceDetail />} />
+      <Route path="/blog/:id" element={<BloggerDetails />} /> 
       <Route path="/SubServices/:serviceId" element={<SubServices />} />
     
 
