@@ -23,7 +23,6 @@
     margin-bottom: 20px;
     flex-direction: column;
     justify-content: space-between;
-    text-align: right; /* Ensure text is right-aligned */
   }
   
   .serviceCard-text {

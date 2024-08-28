@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import './SubServices.css'; 
 import { useParams, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const SubServices = () => {
   const { serviceId } = useParams(); // Get the serviceId from the URL
   const [subServicesData, setSubServicesData] = useState([]);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     // Fetch the sub services data from the API
@@ -14,7 +16,7 @@ const SubServices = () => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'lang': 'ar' 
+        'lang': i18n.language // Set the current language
       },
       body: JSON.stringify({ service_id: serviceId }) // Send the service_id
     })
@@ -35,14 +37,14 @@ const SubServices = () => {
         console.error('Error fetching sub services:', error);
         setError(error.message);
       });
-  }, [serviceId]);
+  }, [serviceId, i18n.language]); // Add i18n.language as a dependency
 
   const handleServiceClick = (id) => {
     navigate(`/ServiceDetail/${id}`);
   };
 
   if (error) {
-    return <div>Error: {error}</div>;
+    return <div>{t('error_message')}{error}</div>;
   }
 
   return (
@@ -52,11 +54,11 @@ const SubServices = () => {
           subServicesData.map(service => (
             <div key={service.id} className="serviceCard" onClick={() => handleServiceClick(service.id)}>
               <h5 className="serviceCard-text">{service.title}</h5>
-              <button className="serviceCard-button">المزيد</button>
+              <button className="serviceCard-button">{t('more_button')}</button>
             </div>
           ))
         ) : (
-          <p>Loading services...</p>
+          <p>{t('loading_services')}</p>
         )}
       </div>
     </div>

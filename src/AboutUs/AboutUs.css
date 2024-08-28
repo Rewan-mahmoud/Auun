@@ -37,3 +37,45 @@ color: #000000;
     margin: 50px 0px;
 
 }
+/* LTR layout */
+.container.ltr .row {
+  direction: ltr;
+}
+
+.container.ltr .details {
+  text-align: left;
+}
+
+.container.ltr .service-image {
+  text-align: right;
+}
+
+/* RTL layout */
+.container.rtl .row {
+  direction: rtl;
+}
+
+.container.rtl .details {
+  text-align: right;
+}
+
+.container.rtl .service-image {
+  text-align: left;
+}
+
+/* General styling */
+.aboutUs .service-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.aboutUs .service-description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.aboutUs .service-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}

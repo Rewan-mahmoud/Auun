@@ -6,7 +6,8 @@ import './Home.css';
 import group from '../assest/Group 295 (1).png';
 import ContactForm from '../ContactForm/ContactForm';
 import axios from 'axios';
-
+import i18n from '../i18n/i18n';
+import { useTranslation } from 'react-i18next';
 
 const Home = () => {
     const [activeIndex, setActiveIndex] = useState(null);
@@ -14,11 +15,13 @@ const Home = () => {
     const [howServeData, setHowServeData] = useState([]);
     const [faqData, setFaqData] = useState([]);
     const [aboutData, setAboutData] = useState(null);
+    const { t } = useTranslation();
+
     useEffect(() => {
         // Fetch the slider data
         fetch('https://admin.auun.net/api/slider', {
             headers: {
-                'lang': 'ar' // Request Arabic language
+                'lang': i18n.language  // Set the current language
             }
         })
             .then(response => response.json())
@@ -29,14 +32,11 @@ const Home = () => {
             })
             .catch(error => console.error('Error fetching the slider data:', error));
 
-    
         axios.get('https://admin.auun.net/api/howserve', {
-          headers: {
-              'lang': 'ar' 
-          }
-          
-      })
-      
+            headers: {
+                'lang': i18n.language  // Set the current language
+            }
+        })
             .then(response => {
                 if (response.data.status) {
                     setHowServeData(response.data.data);
@@ -44,57 +44,62 @@ const Home = () => {
             })
             .catch(error => console.error('Error fetching how serve data:', error));
 
-        // Fetch the FAQ data
         axios.get('https://admin.auun.net/api/question', {
-          headers: {
-              'lang': 'ar'
-          }
-      })
+            headers: {
+                'lang': i18n.language  // Set the current language
+            }
+        })
             .then(response => {
                 if (response.data.status) {
                     setFaqData(response.data.data);
                 }
             })
             .catch(error => console.error('Error fetching FAQ data:', error));
-            axios.get('https://admin.auun.net/api/about' , {
-                headers: {
-                    'lang': 'ar' // Request Arabic language
-                  }
+
+        axios.get('https://admin.auun.net/api/about', {
+            headers: {
+                'lang': i18n.language  // Set the current language
+            }
+        })
+            .then(response => {
+                if (response.data.status) {
+                    setAboutData(response.data.data);
+                }
             })
-                .then(response => {
-                    if (response.data.status) {
-                        setAboutData(response.data.data);
-                    }
-                })
-                .catch(error => {
-                    console.error("Error fetching about data:", error);
-                });
-    }, []);
+            .catch(error => console.error("Error fetching about data:", error));
+
+        // Set direction based on language
+        if (i18n.language === 'ar') {
+            document.body.setAttribute('dir', 'rtl');
+        } else {
+            document.body.setAttribute('dir', 'ltr');
+        }
+    }, [i18n.language]);
 
     const toggleFAQ = (index) => {
         setActiveIndex(activeIndex === index ? null : index);
     };
 
     return (
-        <>
+        <div className={`home-container ${i18n.language === 'ar' ? 'rtl' : 'ltr'}`}>
             <div className="background">
                 <div className="image-container">
-                {sliderData && (
-    <video
-        src={`https://admin.auun.net${sliderData.files}`}
-        autoPlay
-        loop
-        muted
-        className="gif-image"
-    />
-)}
+                    {sliderData && (
+                        <video
+                            src={`https://admin.auun.net${sliderData.files}`}
+                            autoPlay
+                            loop
+                            muted
+                            className="gif-image"
+                        />
+                    )}
                     <div className="layer"></div>
                     <div className="overlay-text">
                         <h1>{sliderData ? sliderData.title : 'عون المتميزة'}</h1>
                         <p>
                             {sliderData ? sliderData.description.replace(/<[^>]+>/g, '') : 'تعتبر شركة عون المتميزة شركة رائدة في مجال الاستشارات المالية والادارية وتطوير الاعمال في السوق السعودي وتضم عون فريق من المحترفين الحاصلين علي شهادات علمية ومهنية دولية وخبرات فنية تصل الي اكثر من عشرون عاما'}
                         </p>
-                        <button className="more-button">المزيد</button>
+                        <button className="more-button">{t('more_button')}</button>
                     </div>
                 </div>
             </div>
@@ -102,41 +107,40 @@ const Home = () => {
             <SliderComponent />
             <Services />
 
-               {/* About Section */}
-               <div className="container">
-                <div className="row ">
+            {/* About Section */}
+            <div className="container">
+                <div className="row">
                     <div className="col-md-6">
                         <div className="details">
-                            <p>من نحن</p>
+                            <p>{t('about_us')}</p>
                             <h1 className="service-title">
-                                {aboutData ? aboutData.title : "Loading..."}
+                                {aboutData ? aboutData.title : t('loading')}
                             </h1>
                             <p className="service-description" dangerouslySetInnerHTML={{ __html: aboutData ? aboutData.description : "" }}></p>
                         </div>
                     </div>
                     <div className="col-md-6">
                         <div className="img3">
-                            <img src={aboutData ? `https://admin.auun.net/${aboutData.image}` : ""} alt="About Us Illustration" />
+                            <img src={aboutData ? `https://admin.auun.net/${aboutData.image}` : ""} alt={t('video_alt')} />
                         </div>
                     </div>
                 </div>
             </div>
-            <div className="container">
-            <div className='howWork'>
-                <h1 className='title text-center'>
-                    كيف تعمل عون ؟
-                </h1>
 
-                <h5 className='text-center'>احصل على خدمات الإستشارات المالية والادارية فقط في ٣ خطوات سهلة</h5>
-                <div className='text-center'>
-                    <img src={group} alt="" />
+            <div className="container">
+                <div className="howWork">
+                    <h1 className="title text-center">
+                        {t('how_aun_works')}
+                    </h1>
+                    <h5 className="text-center">{t('request_service_steps')}</h5>
+                    <div className="text-center">
+                        <img src={group} alt="" />
+                    </div>
                 </div>
             </div>
-            </div>
-     
 
             <div className="how-it-works">
-                <h2 className="how-it-works-title">كيف يمكنك طلب خدمة من عون؟</h2>
+                <h2 className="how-it-works-title">{t('how_to_request_service')}</h2>
                 <div className="steps-container">
                     {howServeData.length > 0 ? (
                         howServeData.map((item, index) => (
@@ -147,13 +151,13 @@ const Home = () => {
                             </div>
                         ))
                     ) : (
-                        <p>Loading steps...</p>
+                        <p>{t('loading')}</p>
                     )}
                 </div>
             </div>
 
             <div className="faq-container">
-                <div className="faq-header">الأسئلة الشائعة</div>
+                <div className="faq-header">{t('faq_header')}</div>
                 {faqData.length > 0 ? (
                     faqData.map((item, index) => (
                         <div key={item.id} className={`faq-item ${activeIndex === index ? 'active' : ''}`}>
@@ -167,16 +171,14 @@ const Home = () => {
                         </div>
                     ))
                 ) : (
-                    <p>Loading FAQs...</p>
+                    <p>{t('loading')}</p>
                 )}
             </div>
 
             <div className="contact">
                 <ContactForm />
             </div>
-
-
-        </>
+        </div>
     );
 };
 

@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import {  Link } from 'react-router-dom';
 import './AboutUs.css';
-
+import { useTranslation } from 'react-i18next';
 
 const AboutUs = () => {
     const [aboutData, setAboutData] = useState(null);
     const [visionData, setVisionData] = useState(null);
     const [missionData, setMissionData] = useState(null);
+    const { t, i18n } = useTranslation();
 
     useEffect(() => {
-  
-        axios.get('https://admin.auun.net/api/about' , {
+        axios.get('https://admin.auun.net/api/about', {
             headers: {
-                'lang': 'ar' // Request Arabic language
-              }
+                'lang': i18n.language // Request the current language
+            }
         })
             .then(response => {
                 if (response.data.status) {
@@ -25,14 +24,11 @@ const AboutUs = () => {
                 console.error("Error fetching about data:", error);
             });
 
-   
-        axios.get('https://admin.auun.net/api/vision'
-            , {
-                headers: {
-                    'lang': 'ar' // Request Arabic language
-                  }
-            })
-        
+        axios.get('https://admin.auun.net/api/vision', {
+            headers: {
+                'lang': i18n.language // Request the current language
+            }
+        })
             .then(response => {
                 if (response.data.status) {
                     setVisionData(response.data.data);
@@ -44,8 +40,8 @@ const AboutUs = () => {
 
         axios.get('https://admin.auun.net/api/mission', {
             headers: {
-                'lang': 'ar' // Request Arabic language
-              }
+                'lang': i18n.language // Request the current language
+            }
         })
             .then(response => {
                 if (response.data.status) {
@@ -55,19 +51,18 @@ const AboutUs = () => {
             .catch(error => {
                 console.error("Error fetching mission data:", error);
             });
-    }, []);
+    }, [i18n.language]); // Add i18n.language as a dependency
 
     return (
-        <div className="aboutUs">
+        <div className={`aboutUs container ${i18n.language === 'ar' ? 'rtl' : 'ltr'}`}>
             {/* About Section */}
             <div className="container">
                 <div className="row">
-                    <div className="service-section"></div>
                     <div className="col-md-6">
                         <div className="details">
-                            <p>من نحن</p>
+                            <p>{t('about_us')}</p>
                             <h1 className="service-title">
-                                {aboutData ? aboutData.title : "Loading..."}
+                                {aboutData ? aboutData.title : t('loading')}
                             </h1>
                             <p className="service-description" dangerouslySetInnerHTML={{ __html: aboutData ? aboutData.description : "" }}></p>
                         </div>
@@ -83,18 +78,16 @@ const AboutUs = () => {
             {/* Mission Section */}
             <div className="container">
                 <div className="row">
-                    <div className="service-section">
-                        <p>رسالتنا</p>
-                        <h1 className="service-title">
-                            {missionData ? missionData.title : "Loading..."}
-                        </h1>
-        <p>نقوم باستخدام احدث الاساليب و الحلول التقنية والمهنية في تقديم الخدمات الفاعلة في مجالنا</p>                    </div>
-                    <div className="col-md-7">
+                    <div className="col-md-6">
                         <div className="details">
-                        <p className="service-description" dangerouslySetInnerHTML={{ __html: missionData ? missionData.description : "" }}></p>
+                            <p>{t('our_mission')}</p>
+                            <h1 className="service-title">
+                                {missionData ? missionData.title : t('loading')}
+                            </h1>
+                            <p className="service-description" dangerouslySetInnerHTML={{ __html: missionData ? missionData.description : "" }}></p>
                         </div>
                     </div>
-                    <div className="col-md-3"> 
+                    <div className="col-md-6"> 
                         <div className="service-image">
                             <img src={missionData ? `https://admin.auun.net/${missionData.image}` : ""} alt="Mission Illustration" />
                         </div>
@@ -105,12 +98,6 @@ const AboutUs = () => {
             {/* Vision Section */}
             <div className="container">
                 <div className="row">
-                    <div className="service-section">
-                        <p>رؤيتنا</p>
-                        <h1 className="service-title">
-                            {visionData ? visionData.title : "Loading..."}
-                        </h1>
-                    </div>
                     <div className="col-md-6"> 
                         <div className="service-image">
                             <img src={visionData ? `https://admin.auun.net/${visionData.image}` : ""} alt="Vision Illustration" />
@@ -118,14 +105,15 @@ const AboutUs = () => {
                     </div>
                     <div className="col-md-6">
                         <div className="details">
-                            <p className="service-description"  dangerouslySetInnerHTML={{ __html: visionData ? visionData.description : "" }}></p>
+                            <p>{t('our_vision')}</p>
+                            <h1 className="service-title">
+                                {visionData ? visionData.title : t('loading')}
+                            </h1>
+                            <p className="service-description" dangerouslySetInnerHTML={{ __html: visionData ? visionData.description : "" }}></p>
                         </div>
                     </div>
                 </div>
             </div>
-
-            {/* Fixed Icons */}
-       
         </div>
     );
 }

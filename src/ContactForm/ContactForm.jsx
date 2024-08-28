@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import vector from '../assest/profile avatar.png';
+import { useTranslation } from 'react-i18next';
 
 const ContactForm = () => {
   const [messageTypes, setMessageTypes] = useState([]);
@@ -7,15 +8,16 @@ const ContactForm = () => {
     name: '',
     email: '',
     phone: '',
-    mestype: '',  // Changed from messageType to mestype
-    mes: ''       // Changed from message to mes
+    mestype: '',
+    mes: ''
   });
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
-    // Fetch message types from the API with Arabic language preference
+    // Fetch message types from the API with the current language preference
     fetch('https://admin.auun.net/api/message_type', {
       headers: {
-        'lang': 'ar' // Request Arabic language
+        'lang': i18n.language // Set the current language
       }
     })
       .then(response => response.json())
@@ -25,7 +27,7 @@ const ContactForm = () => {
         }
       })
       .catch(error => console.error('Error fetching message types:', error));
-  }, []);
+  }, [i18n.language]); // Add i18n.language as a dependency
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -45,27 +47,27 @@ const ContactForm = () => {
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
-        mestype: formData.mestype, // This now matches the key expected by the API
-        mes: formData.mes,         // This now matches the key expected by the API
+        mestype: formData.mestype,
+        mes: formData.mes,
       })
     })
       .then(response => response.json())
       .then(data => {
         if (data.status) {
-          alert('تم إرسال الرسالة بنجاح!');
+          alert(t('success_message'));
         } else {
-          alert('حدث خطأ أثناء إرسال الرسالة.');
+          alert(t('error_message'));
         }
       })
       .catch(error => {
         console.error('Error sending message:', error);
-        alert('حدث خطأ أثناء إرسال الرسالة.');
+        alert(t('error_message'));
       });
   };
 
   return (
     <div className="container">
-      <h1 className='title'>أرسل رسائلك عبر هذا النموذج</h1>
+      <h1 className='title'>{t('send_message_form')}</h1>
       <div className="row justify-content-between py-5 formInfo">
         <div className="col-md-6">
           <div className="form-container">
@@ -73,13 +75,13 @@ const ContactForm = () => {
               <div className="d-flex">
                 <div className="col-md-6">
                   <div className="form-group">
-                    <label htmlFor="name">الاسم</label>
+                    <label htmlFor="name">{t('name')}</label>
                     <div className="input-group">
                       <input
                         type="text"
                         id="name"
                         name="name"
-                        placeholder="أحمد"
+                        placeholder={t('name')}
                         value={formData.name}
                         onChange={handleChange}
                         required
@@ -89,13 +91,13 @@ const ContactForm = () => {
                 </div>
                 <div className="col-md-6">
                   <div className="form-group">
-                    <label htmlFor="email">البريد الإلكتروني</label>
+                    <label htmlFor="email">{t('email')}</label>
                     <div className="input-group">
                       <input
                         type="email"
                         id="email"
                         name="email"
-                        placeholder="البريد الإلكتروني"
+                        placeholder={t('email')}
                         value={formData.email}
                         onChange={handleChange}
                         required
@@ -107,13 +109,13 @@ const ContactForm = () => {
               <div className="d-flex">
                 <div className="col-md-6">
                   <div className="form-group">
-                    <label htmlFor="phone">رقم الجوال</label>
+                    <label htmlFor="phone">{t('phone')}</label>
                     <div className="input-group">
                       <input
                         type="text"
                         id="phone"
                         name="phone"
-                        placeholder="رقم الجوال"
+                        placeholder={t('phone')}
                         value={formData.phone}
                         onChange={handleChange}
                         required
@@ -123,10 +125,10 @@ const ContactForm = () => {
                 </div>
                 <div className="col-md-6">
                   <div className="form-group">
-                    <label htmlFor="mestype">نوع الرسالة</label> {/* Updated name attribute */}
+                    <label htmlFor="mestype">{t('message_type')}</label>
                     <select
                       id="mestype"
-                      name="mestype"  // Updated name attribute
+                      name="mestype"
                       value={formData.mestype}
                       onChange={handleChange}
                       required
@@ -139,25 +141,25 @@ const ContactForm = () => {
                           </option>
                         ))
                       ) : (
-                        <option value="">تحميل...</option>
+                        <option value="">{t('loading')}</option>
                       )}
                     </select>
                   </div>
                 </div>
               </div>
               <div className="form-group">
-                <label htmlFor="mes">الرسالة</label> {/* Updated name attribute */}
+                <label htmlFor="mes">{t('message')}</label>
                 <textarea
-                  id="mes"  // Updated id attribute
+                  id="mes"
                   rows={5}
-                  name="mes"  // Updated name attribute
-                  placeholder="اكتب هنا"
+                  name="mes"
+                  placeholder={t('message')}
                   value={formData.mes}
                   onChange={handleChange}
                   required
                 ></textarea>
               </div>
-              <button type="submit">إرسال</button>
+              <button type="submit">{t('submit_button')}</button>
             </form>
           </div>
         </div>

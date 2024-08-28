@@ -1,9 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&display=swap');
 body {
-  direction: rtl;
-  text-align: right;
   margin: 0px !important;
   font-family: "Cairo", sans-serif !important;
 }
 
+
+body.rtl {
+  direction: rtl; /* for Arabic */
+}
+
+body.lte {
+  direction: ltr; /* for Arabic */
+}
+body[dir="rtl"] {
+  text-align: right;
+}
+
+body[dir="ltr"] {
+  text-align: left;
+}
+
+/* Additional RTL-specific styles */

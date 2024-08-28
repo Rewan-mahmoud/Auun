@@ -1,11 +1,9 @@
-
-
 .faq-container {
   max-width: 1240px;
   margin: 50px auto;
   padding: 60px 20px; /* Adjusted for better responsiveness */
   margin-bottom: 100px;
-  background: linear-gradient(90deg, #8124BD 0%, #674A92 50%, #311356 100%);
+  background: linear-gradient(90deg, #8124bd 0%, #674a92 50%, #311356 100%);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -50,7 +48,7 @@
 .faq-item.active .faq-answer {
   display: block;
 }
-  
+
 .how-it-works {
   background: #311356;
   color: white;
@@ -90,7 +88,7 @@
 }
 
 .step-number {
-  background: #674A92;
+  background: #674a92;
   color: white;
   border-radius: 50%;
   width: 30px;
@@ -103,7 +101,7 @@
   right: -15px;
   font-size: 1.2rem;
 }
-.BloggerCard .card-text{
+.BloggerCard .card-text {
   color: #000000;
 }
 .step-title {
@@ -114,85 +112,129 @@
 .step-description {
   font-size: 1rem;
 }
-.priceOfferForm{
+.priceOfferForm {
   width: 70%;
 }
+.language span {
+  cursor: pointer;
+}
+
+/* LTR layout */
+.home-container.ltr .text-right {
+  text-align: right;
+}
+
+.home-container.ltr .text-left {
+  text-align: left;
+}
+
+/* RTL layout */
+.home-container.rtl {
+  direction: rtl;
+}
+
+.home-container.rtl .text-right {
+  text-align: left;
+}
+
+.home-container.rtl .text-left {
+  text-align: right;
+}
+
+/* Add any other specific RTL adjustments below */
+.home-container.rtl .step-card {
+  text-align: left;
+  /* If needed, adjust padding/margins */
+}
+
+.home-container.rtl .overlay-text {
+  right: 5%; /* Adjust this as needed */
+  right: unset;
+  text-align: right;
+}
+
+.home-container.ltr .overlay-text {
+  left: 6%;
+  text-align: left;
+}
+
+/* Ensure proper image alignment for RTL */
 
 /* Responsive Adjustments */
 @media (max-width: 1024px) {
   .step-card {
-      width: 45%; /* Adjust width for tablets */
+    width: 45%; /* Adjust width for tablets */
   }
 
   .step-title {
-      font-size: 1.4rem; /* Slightly reduce font size */
+    font-size: 1.4rem; /* Slightly reduce font size */
   }
 
   .step-description {
-      font-size: 0.95rem; /* Slightly reduce font size */
+    font-size: 0.95rem; /* Slightly reduce font size */
   }
 }
 
 @media (max-width: 768px) {
   .step-card {
-      width: 100%; /* Full width on smaller screens */
-      margin: 15px 0; /* Add vertical spacing */
+    width: 100%; /* Full width on smaller screens */
+    margin: 15px 0; /* Add vertical spacing */
   }
 
   .step-title {
-      font-size: 1.3rem; /* Adjust font size for small screens */
+    font-size: 1.3rem; /* Adjust font size for small screens */
   }
 
   .step-description {
-      font-size: 0.9rem; /* Adjust font size for small screens */
+    font-size: 0.9rem; /* Adjust font size for small screens */
   }
 }
 
 @media (max-width: 480px) {
   .how-it-works {
-      padding: 60px 10px; /* Reduce padding for small screens */
+    padding: 60px 10px; /* Reduce padding for small screens */
   }
 
   .how-it-works-title {
-      font-size: 1.8rem; /* Adjust title size */
+    font-size: 1.8rem; /* Adjust title size */
   }
 
   .step-card {
-      width: 100%; /* Full width on small screens */
-      padding: 15px; /* Reduce padding */
+    width: 100%; /* Full width on small screens */
+    padding: 15px; /* Reduce padding */
   }
 
   .step-title {
-      font-size: 1.2rem; /* Further reduce font size */
+    font-size: 1.2rem; /* Further reduce font size */
   }
 
   .step-description {
-      font-size: 0.85rem; /* Further reduce font size */
+    font-size: 0.85rem; /* Further reduce font size */
   }
 
   .step-number {
-      width: 25px; /* Adjust number size */
-      height: 25px;
-      font-size: 1rem;
+    width: 25px; /* Adjust number size */
+    height: 25px;
+    font-size: 1rem;
   }
 }
 
-  .howWork img {
-    padding-bottom: 60px;
-  }
-  .howWork h5 {
-    padding-bottom: 80px;
-  }
-  .howWork{
-    margin-bottom: 100px;
-  }
-  .background img{
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-  }
-  .background {
+.howWork img {
+  padding-bottom: 60px;
+}
+.howWork h5 {
+  padding-bottom: 80px;
+}
+.howWork {
+  margin-bottom: 100px;
+}
+.background img {
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+.background {
   position: relative;
   /* background: linear-gradient(to right, #A874E8B2, #A874E8B2); */
 }
@@ -205,7 +247,6 @@
 .gif-image {
   display: block;
 }
-
 
 .background {
   position: relative;
@@ -225,372 +266,353 @@
   left: 0;
   width: 100%;
   height: 100vh; /* Match the gif-image height */
-  background: linear-gradient(to right, #9c78c7b2, #18121eb2); /* Adjust the gradient as needed */
+  background: linear-gradient(
+    to right,
+    #9c78c7b2,
+    #18121eb2
+  ); /* Adjust the gradient as needed */
 }
 
-  .overlay-text {
-    position: absolute;
-    top: 63%;
-    width: 40%;
-    left: 56%;
-    transform: translate(0%, -50%);
-    color: white;
-  }
-  
-  .overlay-text h1 {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-  }
-  
-  .overlay-text p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    line-height: 1.5;
-  }
-a{
+.overlay-text {
+  position: absolute;
+  top: 63%;
+  width: 40%;
+  left: 56%;
+  transform: translate(0%, -50%);
+  color: white;
+}
+
+.overlay-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+.overlay-text p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+a {
   text-decoration: none !important;
 }
-  .more-button {
-    background-color: #311356; /* Purple color */
-    color: white;
-    border: none;
-    padding: 10px 50px;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-  }
-  
-  .more-button:hover {
-    background-color: #8124BD; /* Darker purple color */
-  }
+.more-button {
+  background-color: #311356; /* Purple color */
+  color: white;
+  border: none;
+  padding: 10px 50px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
 
-  @media (min-width: 1795px) {
+.more-button:hover {
+  background-color: #8124bd; /* Darker purple color */
+}
 
-    .overlay-text p {
-      font-size: 2rem;
-    }
-    .slider-container {
-      width: 100%;
-      max-width: 1600px;
+@media (min-width: 1795px) {
+  .overlay-text p {
+    font-size: 2rem;
   }
- .title{
-  font-size: 4rem;
-}
- .serviceseDescription {
-font-size: 30px;
-}
-.Services .card-description, span {
-  font-size: 26px;
-}
-.service-title {
-  font-size: 66px;
-}
-.service-description{
-  font-size: 35px;
+  .slider-container {
+    width: 100%;
+    max-width: 1600px;
+  }
+  .title {
+    font-size: 4rem;
+  }
+  .serviceseDescription {
+    font-size: 30px;
+  }
+  .Services .card-description,
+  span {
+    font-size: 26px;
+  }
+  .service-title {
+    font-size: 66px;
+  }
+  .service-description {
+    font-size: 35px;
     line-height: 71px;
-}
-.details{
-  padding: 300px 102px;
-}
+  }
+  .details {
+    padding: 300px 102px;
+  }
 
-.faq-question {
-  font-size: 30px;
-}
-.faq-header {
-  font-size: 40px;
-}
-.step-number {
-  width: 40px;
-  height: 40px;
-  font-size: 1.6rem;
-}
-.step-description {
-  font-size: 1.4rem;
-}
-.step-title {
-  font-size: 2.3rem;
-}
-.how-it-works-title {
+  .faq-question {
+    font-size: 30px;
+  }
+  .faq-header {
+    font-size: 40px;
+  }
+  .step-number {
+    width: 40px;
+    height: 40px;
+    font-size: 1.6rem;
+  }
+  .step-description {
+    font-size: 1.4rem;
+  }
+  .step-title {
+    font-size: 2.3rem;
+  }
+  .how-it-works-title {
     font-size: 2.9rem;
   }
   .faq-answer {
     font-size: 27px;
   }
-   .contact label {
-      padding: 20px !important;
-      font-size: 30px !important;
-    }
-   .contact input ,select , textarea {
-      padding: 20px !important;
-      font-size: 30px !important;
-    }
-    .contact button {
-      padding: 19px;
-      font-size: 35px;
-    
-
-    }
-    .Services {
-      margin-top: 224px;
+  .contact label {
+    padding: 20px !important;
+    font-size: 30px !important;
   }
-    
-    .footer-logo {
-      width: 65%;}
-  .vector img{
-     margin-right: 25px; 
-    
-    }
-   
-    .card-title {
-      font-size: 3em;
+  .contact input,
+  select,
+  textarea {
+    padding: 20px !important;
+    font-size: 30px !important;
   }
-    .card {
-      width: 385px;}
-    .faq-container {
-      max-width: 1298px;
-      }
-      .footer-title {
-        font-size: 2.5em;}
-    .footer-column p {
-      font-size: 2.3em;
-        margin: 26px 0
-    }
-    .footer-content {
-      padding: 21px 90px;
-      max-width: none;
-
-    }
-    .footer {
-
-      padding: 87px 0;}
-    .footer svg {
-      font-size: 38px;
-      }
-      .footer-column {
-      
-        max-width: 439px;}
-        .footer-bottom p {
-          font-size: 41px;
-          margin-top: 75px;
-      }
-      .howWork img {
-        width: 80%;
-    }
-    .howWork h5 {
-      padding-bottom: 142px;
-      font-size: 37px;
+  .contact button {
+    padding: 19px;
+    font-size: 35px;
   }
-  .service-image img{
+  .Services {
+    margin-top: 224px;
+  }
+
+  .footer-logo {
+    width: 65%;
+  }
+  .vector img {
+    margin-right: 25px;
+  }
+
+  .card-title {
+    font-size: 3em;
+  }
+  .card {
+    width: 385px;
+  }
+  .faq-container {
+    max-width: 1298px;
+  }
+  .footer-title {
+    font-size: 2.5em;
+  }
+  .footer-column p {
+    font-size: 2.3em;
+    margin: 26px 0;
+  }
+  .footer-content {
+    padding: 21px 90px;
+    max-width: none;
+  }
+  .footer {
+    padding: 87px 0;
+  }
+  .footer svg {
+    font-size: 38px;
+  }
+  .footer-column {
+    max-width: 439px;
+  }
+  .footer-bottom p {
+    font-size: 41px;
+    margin-top: 75px;
+  }
+  .howWork img {
+    width: 80%;
+  }
+  .howWork h5 {
+    padding-bottom: 142px;
+    font-size: 37px;
+  }
+  .service-image img {
     width: 100%;
     height: 100%;
   }
   .service-section p {
     font-size: 40px;
-}
+  }
 
-.titles h1 {
+  .titles h1 {
     font-size: 5.5rem;
-}
+  }
 
-
-.titles p {
+  .titles p {
     font-size: 2.2rem;
-}
+  }
 
-.map iframe {
+  .map iframe {
     width: 100% !important;
-}
-.icon-circle .svg-inline--fa {
-  color: #fff;
-  font-size: 41px !important;
-}
-.icon-circle {
-  width: 100px !important;
-  height: 100px !important;
-}
-.icon-circle.hovered {
-  border-radius: 25px; /* Make the icon container more oval-shaped */
-  width: 250px !important;
-;
-}
-.icon-text{
-  font-size: 25px !important;
-}
-.blogger .nav-link {
-  font-size: 28px;
-}
-.background input {
-
-  font-size: 33px !important;
-  padding: 18px !important;
+  }
+  .icon-circle .svg-inline--fa {
+    color: #fff;
+    font-size: 41px !important;
+  }
+  .icon-circle {
+    width: 100px !important;
+    height: 100px !important;
+  }
+  .icon-circle.hovered {
+    border-radius: 25px; /* Make the icon container more oval-shaped */
+    width: 250px !important;
+  }
+  .icon-text {
+    font-size: 25px !important;
   }
   .blogger .nav-link {
-
+    font-size: 28px;
+  }
+  .background input {
+    font-size: 33px !important;
+    padding: 18px !important;
+  }
+  .blogger .nav-link {
     font-size: 28px !important;
   }
   .input-with-icon .fa-magnifying-glass {
     width: 51px !important;
-    height: 60px !important; 
+    height: 60px !important;
     right: 0.78rem !important;
     top: 52% !important;
-}
-.input-with-icon input {
-  padding-right: 5rem !important;
+  }
+  .input-with-icon input {
+    padding-right: 5rem !important;
+  }
+  .overlay-text h1 {
+    font-size: 70px;
+  }
 
-}
-.overlay-text h1 {
-  font-size: 70px ;
-}
-
-.BloggerCard span {
-  font-size: 30px !important;
-}
+  .BloggerCard span {
+    font-size: 30px !important;
+  }
   .BloggerCard .card-text {
     font-size: 34px !important;
+  }
+  .BloggerCard .card-title {
+    font-size: 32px !important;
+  }
+  .serviceCardContainer {
+    margin-top: 257px !important;
+  }
+  .serviceCard-text {
+    font-size: 40px !important;
+  }
+  .serviceCard-button {
+    width: 159.89px;
+    height: 84px;
+    font-size: 30px;
+  }
 
-}
-.BloggerCard .card-title {
-  font-size: 32px !important;
-}
-.serviceCardContainer {
-  margin-top: 257px !important;
-}
-.serviceCard-text {
-  font-size: 40px !important;
-}
-.serviceCard-button {
-  width: 159.89px;
-  height: 84px;
- font-size: 30px;
-}
-
-
-.serviceCard-button {
-  width: 183.89px !important;
-  height: 77px !important;
-}
-.card-button {
- 
-  padding: 16px 60px;
-  font-size: 28px;
-}
-.card{
-  height: 632px !important;
+  .serviceCard-button {
+    width: 183.89px !important;
+    height: 77px !important;
+  }
+  .card-button {
+    padding: 16px 60px;
+    font-size: 28px;
+  }
+  .card {
+    height: 632px !important;
 
     width: 513px;
-
+  }
+  .slide-item img {
+    height: 270px;
+  }
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(575px, 5fr));
+  }
 }
-.slide-item img{
-height: 270px;
-}
-.card-grid 
-{
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(575px, 5fr));
-}
-
-
-}
-
-
-
-
-
-
 
 @media (max-width: 768px) {
   .faq-container {
-      padding: 40px 15px;
+    padding: 40px 15px;
   }
 
   .faq-header {
-      font-size: 24px;
-      margin-bottom: 30px;
+    font-size: 24px;
+    margin-bottom: 30px;
   }
 
   .faq-question {
-      font-size: 16px;
-      padding: 12px;
+    font-size: 16px;
+    padding: 12px;
   }
 
   .faq-answer {
-      font-size: 14px;
-      padding: 12px;
+    font-size: 14px;
+    padding: 12px;
   }
 }
 
 @media (max-width: 480px) {
   .faq-container {
-      padding: 30px 10px;
+    padding: 30px 10px;
   }
 
   .faq-header {
-      font-size: 20px;
-      margin-bottom: 20px;
+    font-size: 20px;
+    margin-bottom: 20px;
   }
 
   .faq-question {
-      font-size: 14px;
-      padding: 10px;
+    font-size: 14px;
+    padding: 10px;
   }
 
   .faq-answer {
-      font-size: 12px;
-      padding: 10px;
+    font-size: 12px;
+    padding: 10px;
   }
 }
 @media (max-width: 1248px) {
-  .howWork img{
-width: 70%;
-}
-
-
-
+  .howWork img {
+    width: 70%;
+  }
 }
 /* MOBILEVIEWWW */
-@media (min-width: 375px) and (max-width: 1199px){
+@media (min-width: 375px) and (max-width: 1199px) {
   .overlay-text {
     top: 54%;
     width: 100%;
     left: 0%;
     text-align: center;
-}
+  }
   .overlay-text p {
     font-size: 0.9rem;
     padding: 0px 20px;
-}
-.fixed-icons {
-  top: 74% !important;
-}
-.slick-dots{
-  display: none !important;
-}
-.howWork img {
-  width: 100%;
-}
+  }
+  .fixed-icons {
+    top: 74% !important;
+  }
+  .slick-dots {
+    display: none !important;
+  }
+  .howWork img {
+    width: 100%;
+  }
 
-.service-image img {
-  width: 360px;
-  height: 360px;
+  .service-image img {
+    width: 360px;
+    height: 360px;
+  }
+  .ContactUs .titles {
+    top: 53%;
+    left: 50%;
+    width: 100%;
+  }
+  .logo {
+    height: 50px;
+    width: 44px;
+  }
+  .open {
+    font-size: 17px;
+  }
 }
-.ContactUs .titles{
-  top: 53%;
-  left: 50%;
-  width: 100%;
-  
-}
-.logo {
-  height: 50px;
-  width: 44px;
-}
-.open{
-  font-size: 17px;
-}
-
-}
-@media (min-width: 375px) and (max-width: 751px){
+@media (min-width: 375px) and (max-width: 751px) {
   .content-container h2 {
-
     font-size: 23px !important;
   }
   .content-container span {
@@ -600,12 +622,12 @@ width: 70%;
     flex-direction: column;
     text-align: center;
   }
-  
+
   .content-container {
     max-width: 100%;
     margin-top: 20px;
   }
-  
+
   .image-container {
     order: -1; /* Moves the image before the content in the DOM */
     margin-bottom: 20px;

@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
-import './fixedIcons.css'; // Adjust the path as necessary
+import { useTranslation } from 'react-i18next';
+import './fixedIcons.css';
 
 const FixedIcons = () => {
   const [hovered, setHovered] = useState(null);
+  const { i18n } = useTranslation();
 
   const handleMouseEnter = (icon) => {
     setHovered(icon);
@@ -16,7 +18,7 @@ const FixedIcons = () => {
   };
 
   return (
-    <div className="fixed-icons">
+    <div className={`fixed-icons ${i18n.language === 'ar' ? 'rtl' : 'ltr'}`}>
       <div 
         className={`icon-circle ${hovered === 'whatsapp' ? 'hovered' : ''}`} 
         onMouseEnter={() => handleMouseEnter('whatsapp')}

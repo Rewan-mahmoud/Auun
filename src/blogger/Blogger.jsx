@@ -6,22 +6,28 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import Card from '../Cards/CardContainer';
 import { Link } from 'react-router-dom'; // Import Link
+import { useTranslation } from 'react-i18next';
 
 const Blogger = () => {
   const [blogs, setBlogs] = useState([]);
   const [categories, setCategories] = useState([]);
   const [activeCategoryId, setActiveCategoryId] = useState(null);
   const [error, setError] = useState(null);
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     // Fetch categories data from the API
-    fetch('https://admin.auun.net/api/categories')
+    fetch('https://admin.auun.net/api/categories', {
+      headers: {
+        'lang': i18n.language // Set the language based on the current selection
+      }
+    })
       .then(response => response.json())
       .then(data => {
         if (data.status && data.data) {
           setCategories(data.data);
         } else {
-          throw new Error('Failed to load categories');
+          throw new Error(t('error_loading_categories'));
         }
       })
       .catch(error => {
@@ -35,7 +41,7 @@ const Blogger = () => {
       method: activeCategoryId !== null ? 'POST' : 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'lang':'ar'
+        'lang': i18n.language
       },
       body: activeCategoryId !== null ? JSON.stringify({ cat_id: activeCategoryId }) : undefined,
     })
@@ -46,7 +52,7 @@ const Blogger = () => {
         }
       })
       .catch(error => console.error('Error fetching the blog data:', error));
-  }, [activeCategoryId]);
+  }, [activeCategoryId, i18n.language]);
 
   const handleCategoryClick = (catId) => {
     // Toggle the active category between the selected category and null
@@ -70,45 +76,44 @@ const Blogger = () => {
       <div className="background blogger">
         <img src={group} alt="gif" />
         <div className="overlayy-text">
-          <h1>مدونة عون المتميزة</h1>
-      
-            <div className="input-with-icon">
-              <input
-                className=" "
-                type="search"
-                placeholder="ابحث"
-                aria-label="Search"
-              />
-              <FontAwesomeIcon
-                icon={faMagnifyingGlass}
-                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-purple-600 pointer-events-none"
-              />
-            </div>
-            <ul className="bloggerNav ">
-              {error ? (
-                <li className="nav-item">
-                  <a className="nav-link disabled" href="#">Error loading categories</a>
-                </li>
-              ) : categories.length > 0 ? (
-                categories.map((category) => (
-                  <li className="nav-item" key={category.id}>
-                    <a
-                      className={`nav-link ${activeCategoryId === category.id ? 'active' : ''}`}
-                      href="#"
-                      onClick={() => handleCategoryClick(category.id)}
-                    >
-                      {category.name}
-                    </a>
-                  </li>
-                ))
-              ) : (
-                <li className="nav-item">
-                  <a className="nav-link disabled" href="#">Loading categories...</a>
-                </li>
-              )}
-            </ul>
+          <h1>{t('blog_title')}</h1>
+          <div className="input-with-icon">
+            <input
+              className=" "
+              type="search"
+              placeholder={t('search_placeholder')}
+              aria-label="Search"
+            />
+            <FontAwesomeIcon
+              icon={faMagnifyingGlass}
+              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-purple-600 pointer-events-none"
+            />
           </div>
+          <ul className="bloggerNav">
+            {error ? (
+              <li className="nav-item">
+                <a className="nav-link disabled" href="#">{t('error_loading_categories')}</a>
+              </li>
+            ) : categories.length > 0 ? (
+              categories.map((category) => (
+                <li className="nav-item" key={category.id}>
+                  <a
+                    className={`nav-link ${activeCategoryId === category.id ? 'active' : ''}`}
+                    href="#"
+                    onClick={() => handleCategoryClick(category.id)}
+                  >
+                    {category.name}
+                  </a>
+                </li>
+              ))
+            ) : (
+              <li className="nav-item">
+                <a className="nav-link disabled" href="#">{t('loading_categories')}</a>
+              </li>
+            )}
+          </ul>
         </div>
+      </div>
 
       <div className="container cardContainer">
         <div className="row">
@@ -127,7 +132,7 @@ const Blogger = () => {
               </div>
             ))
           ) : (
-            <p>No blogs available for this category.</p>
+            <p>{t('no_blogs_available')}</p>
           )}
         </div>
       </div>

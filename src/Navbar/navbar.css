@@ -9,6 +9,7 @@ html, body {
   box-sizing: border-box; /* Ensure padding doesn't affect width */
 }
 
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -51,6 +52,10 @@ html, body {
   flex-grow: 1;
   justify-content: center;
   align-items: center;
+}
+.language svg {
+  font-size: 24px;
+  color: #311356;
 }
 
 .nav-link {
@@ -111,7 +116,38 @@ html, body {
   display: none;
 }
 
+.navbar.ltr {
+  direction: ltr;
+}
 
+.navbar.ltr .navbar-left {
+  order: 1;
+}
+
+.navbar.ltr .navbar-right {
+  order: 3;
+}
+
+.navbar.ltr .navbar-center {
+  order: 2;
+}
+
+/* RTL layout */
+.navbar.rtl {
+  direction: rtl;
+}
+
+.navbar.rtl .navbar-left {
+  order: 1;
+}
+
+.navbar.rtl .navbar-right {
+  order: 3;
+}
+
+.navbar.rtl .navbar-center {
+  order: 2;
+}
 
 /* Responsive Styles */
 
