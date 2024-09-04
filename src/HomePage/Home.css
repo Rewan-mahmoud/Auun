@@ -573,16 +573,152 @@ a {
   }
 }
 /* MOBILEVIEWWW */
+@media (min-width: 240px) and (max-width:560px) {
+  .overlay-text {
+    width: 77%;
+    left: 20%;
+    transform: translate(0%, -70%);
+  }
+  .overlay-text h1{
+    font-size: 1.4rem;
+  }
+  .slider .title {
+    font-size: 1rem;
+}
+.slider .subtitle {
+  font-size: 15px;
+}
+.service-title {
+  font-size: 29px;
+}
+.service-description {
+  font-size: 10px;
+
+}
+.details 
+{
+padding: 140px 20px;
+}
+.howWork img{
+  padding: 0px 20px;
+}
+.slider{
+  padding: 0px 20px;
+}
+  .overlay-text p {
+    font-size: 0.7rem;
+    margin-bottom: 20px;
+  }
+  .price-button, .price-button-inside-toggle {
+    padding: 6px 10px;
+    font-size: 10px;
+  }
+  .icon-circle {
+    width: 35px !important;
+    height: 35px !important;
+  }
+  .icon-circle svg {
+    font-size: 14px !important;
+  }
+.logo2-inside-toggle{
+  width: 20%;
+}
+
+.icon-circle.hovered {
+height: auto;
+  width: 150px !important;
+}
+.slick-dots {
+  display: none !important;
+}
+.ContactUs .titles {
+  width: 100%;
+  transform: translate(-50%, -102%);
+}
+.ContactUs .titles h1 {
+  font-size: 1.5em;
+}
+.governance{
+  width: 100%;
+}
+.ContactUs .titles p {
+  font-size: 12px;
+}
+.contact  h1 {
+font-size: 20px;
+}
+.pricebutton{
+  width: 100%;
+}
+
+
+.service-title  {
+  font-size: 20px !important;
+}
+.footer-bottom p {
+  font-size: 10px;}
+.form-container {
+  padding: 10px;
+}
+.slide-item img {
+  height: 100%;
+}
+.Services {
+  margin-top: 30px;
+}
+.serviceseDescription{
+  font-size: 12px;
+}
+.card-title{
+  font-size: 1.2em;
+}
+.card-description {
+    font-size: 0.8em;
+  }
+  .Services{
+    padding:0px  20px;
+  }
+.more-button{
+  padding: 8px 36px;
+  font-size: 0.8rem;
+}
+/* PriceOffer */
+.priceOfferForm{
+  width: 100%;
+}
+  /* Blogeeer */
+  .background img{
+    object-fit: cover;
+    height: 74vh;
+  }
+  .overlayy-text h1 {
+    font-size: 45px !important;
+  }
+  .input-with-icon {
+    max-width: 88%;
+}
+.blogger .nav-link {
+  font-size: 15px !important;
+  font-weight: 700;
+  text-decoration: none !important;
+}
+.bloggerNav{
+  padding: 0px 18px;
+  margin-top: 0px;
+}
+
+}
 @media (min-width: 375px) and (max-width: 1199px) {
   .overlay-text {
     top: 54%;
     width: 100%;
     left: 0%;
+    padding: 0px 20px;
     text-align: center;
   }
   .overlay-text p {
     font-size: 0.9rem;
-    padding: 0px 20px;
+
   }
   .fixed-icons {
     top: 74% !important;
@@ -619,7 +755,7 @@ a {
     font-size: 12px;
   }
   .financial-consultation {
-    flex-direction: column;
+
     text-align: center;
   }
 
@@ -632,6 +768,7 @@ a {
     order: -1; /* Moves the image before the content in the DOM */
     margin-bottom: 20px;
   }
+
 }
 /* @media (max-width: 1782px) {
   .overlay-text{

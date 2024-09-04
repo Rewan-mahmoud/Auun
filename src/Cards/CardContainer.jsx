@@ -11,7 +11,7 @@ const Card = ({ imgSrc, circleSrc, title, date, text }) => (
   <div className="BloggerCard">
     <img className="card-img-top" src={imgSrc} alt="Card cap" />
     <div className="card-body">
-      <div className="d-flex justify-content-between">
+      <div className="d-flex">
         <div>
           <img src={circleSrc} alt="Circle" className="circle-img" />
         </div>

@@ -1,216 +1,217 @@
 .background {
-    position: relative; /* Ensure this is relative to contain absolutely positioned children */
-  }
-  
-  .overlayy-text {
-    position: absolute;
-    top: 50%; /* Adjust as needed */
-    left: 50%;
-    transform: translate(-50%, -50%); /* Center horizontally and vertically */
-    width: 100%; /* Ensure it doesn't overflow */
-    text-align: center; /* Center the text inside */
-  }
-  
+  position: relative; /* Ensure this is relative to contain absolutely positioned children */
+}
+
+.overlayy-text {
+  position: absolute;
+  top: 50%; /* Adjust as needed */
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center horizontally and vertically */
+  width: 100%; /* Ensure it doesn't overflow */
+  text-align: center; /* Center the text inside */
+}
+
 .overlayy-text h1 {
-    color: #311356 !important;
-    font-size: 64px !important;
-    font-weight: 700;
-    margin-bottom: 20px; /* Ensure spacing */
-    text-align: center;
-
+  color: #311356 !important;
+  font-size: 64px;
+  font-weight: 700;
+  margin-bottom: 20px; /* Ensure spacing */
+  text-align: center;
 }
+
 .background input {
-    margin-top: 50px;
-    margin-bottom: 50px;
-    padding: 10px;
-    border-radius: 16px;
-    border: 2px solid #311356;
-    width: 80%;
-  }
-  
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 10px;
+  border-radius: 16px;
+  border: 2px solid #311356;
+  width: 80%;
+}
 
-  .input-with-icon {
-    position: relative;
-    width: 100%;
-    max-width: 900px; 
-    margin: 20px auto; 
-  }
-  
-  .input-with-icon input {
-    width: 100%; 
-    padding-right: 3rem; 
-    padding-left: 1rem; 
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-radius: 16px;
-    border: 2px solid #311356;
-    box-sizing: border-box; 
-  }
-  
-  .input-with-icon .fa-magnifying-glass {
-    position: absolute;
-    right: 0.9rem; 
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none;
-    width: 21px;
-    height: 22px;
-  }
-  
+.input-with-icon {
+  position: relative;
+  width: 100%;
+  max-width: 900px; 
+  margin: 20px auto; 
+}
 
-  /* NavigationMenu.css */
+.input-with-icon input {
+  width: 100%; 
+  padding-right: 3rem; 
+  padding-left: 1rem; 
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 16px;
+  border: 2px solid #311356;
+  box-sizing: border-box; 
+}
+
+.input-with-icon .fa-magnifying-glass {
+  position: absolute;
+  right: 0.9rem; 
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  width: 21px;
+  height: 22px;
+}
+
+/* NavigationMenu.css */
 .blogger .nav-link {
-    margin: 0 !important;
-    color: #311356 ;
-    font-size: 20px;
+  margin: 0 !important;
+  color: #311356 ;
+  font-size: 20px;
+  text-decoration: underline;
 }
+
 .bloggerNav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    list-style-type: none;
-    padding: 0;
-    gap: 15px;
-    margin-top: 50px;
-  }
-  
-  .input-with-icon {
-    position: relative;
-    width: 100%; 
-  }
-
-
-  .overlayy-text {
-    z-index: 10;
-  }
-  
-  .background img {
-    z-index: 1; /* The background image should be below the overlay */
-  }
-  
-
-.blogger .nav-link  {
-    text-decoration: underline !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  padding: 0;
+  gap: 15px;
+  margin-top: 50px;
 }
 
-ul{
-    padding-right: 0px !important;
+.input-with-icon {
+  position: relative;
+  width: 100%; 
+}
+
+.overlayy-text {
+  z-index: 10;
+}
+
+.background img {
+  z-index: 1; /* The background image should be below the overlay */
+}
+
+ul {
+  padding-right: 0px !important;
 }
 
 .BloggerCard {
-    width: 100%;
-    height: 100%;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-}
-.BloggerCard:hover{
-    transform: translateY(-10px);
-
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
 }
 
+.BloggerCard:hover {
+  transform: translateY(-10px);
+}
 
 .card-img-wrapper {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    position: relative;
-    flex-grow: 1;
+  width: 100%;
+  height: auto; /* Ensure image height scales with width */
+  overflow: hidden;
+  position: relative;
+  flex-grow: 1;
 }
 
 .card-img-top {
-    width: 100%;
-    height: 100%;
-
+  width: 100%;
+  height: auto;
 }
 
 .card-body {
-
-    bottom: 0px;
-    padding:  26px 36px 26px 36px;
-    left: 27px;
-    border-radius: 52px 0px 0px 0px;
-    background-color: white;
+  padding: 16px;
+  background-color: white;
+  border-radius: 0 0 10px 10px;
 }
 
+.BloggerCard .card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
 
+.BloggerCard span {
+  font-size: 14px;
+  color: #858585;
+}
+
+.BloggerCard .card-text {
+  font-size: 14px;
+}
+
+.BloggerCard .card-body img {
+  padding-left: 20px;
+}
+
+.arrow-icon {
+  position: absolute;
+  bottom: 8px;
+  left: 30px;
+  color: #666666;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.arrow-icon:hover {
+  color: #333333;
+}
+
+.cardGap {
+  margin-bottom: 30px;
+}
+
+.cardContainer {
+  width: 90%; /* Adjust container width for responsiveness */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Responsive adjustments for tablets */
+@media (max-width: 768px) {
+.BloggerCard .card-title {
+    font-size: 16px;
+}
+.BloggerCard span, .BloggerCard .card-text {
+    font-size: 12px;
+}
+.cardGap {
+    margin-bottom: 20px;
+}
+.cardContainer {
+    width: 100%;
+    padding: 10px;
+}
+}
+
+/* Responsive adjustments for mobile screens */
+@media (max-width: 480px) {
+.BloggerCard {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
 .BloggerCard .card-title {
     font-size: 14px;
 }
-.BloggerCard span {
-    font-size: 12px;
-    color: #858585;
-}
-.BloggerCard  .card-text{
+.BloggerCard span, .BloggerCard .card-text {
     font-size: 12px;
 }
-.BloggerCard .card-body img {
-    padding-left: 20px;
-
-}
-.arrow-icon {
-    position: absolute;
-    bottom: 8px;
-    left: 30px;
-    color: #666666;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: color 0.3s;
-  }
-  
-  .arrow-icon:hover {
-    color: #333333;
-  }
-.cardGap{
-    margin-bottom: 50px;
+.card-body {
+    padding: 10px;
 }
 .cardContainer {
-    margin: auto;
-    width: 55%;
-
-    margin-bottom: 50px;
+    width: 100%;
+    padding: 5px;
+}
 }
 
-
-@media (max-width: 768px) {
-  .input-with-icon {
-    max-width: 90%; /* Reduce max-width for tablets */
-  }
-
-  .input-with-icon input {
-    font-size: 14px; /* Adjust font size for smaller screens */
-    padding-right: 2.5rem; /* Adjust padding for smaller screen */
-  }
-
-  .input-with-icon .fa-magnifying-glass {
-    width: 18px;
-    height: 18px; /* Adjust icon size for smaller screens */
-  }
-}
-
-@media (max-width: 480px) {
-  .input-with-icon {
-    max-width: 100%; /* Full width on very small screens */
-  }
-
-  .input-with-icon input {
-    font-size: 12px; /* Further reduce font size for very small screens */
-    padding-right: 2rem; /* Adjust padding for very small screens */
-  }
-
-  .input-with-icon .fa-magnifying-glass {
-    width: 16px;
-    height: 16px; /* Further adjust icon size for very small screens */
-  }
-}
+/* Additional Media Queries */
 @media (max-width: 1382px) {
-  .BloggerCard .card-title {
-    font-size: 23px;
-  }
+.BloggerCard .card-title {
+  font-size: 23px;
+}
 }

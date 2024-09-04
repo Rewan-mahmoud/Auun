@@ -48,13 +48,15 @@ const SubServiceDetail = () => {
   return (
     <div className="governance-container">
       <div className="financial-consultation">
+      <div className="image-container">
+          <img src={`https://admin.auun.net/${subService.image}`} alt={subService.title} />
+        </div>
         <div className="content-container">
+          
           <h2 className="service-title">{subService.title}</h2>
           <p className="" dangerouslySetInnerHTML={{ __html: subService.description }}></p>
         </div>
-        <div className="image-container">
-          <img src={`https://admin.auun.net/${subService.image}`} alt={subService.title} />
-        </div>
+      
       </div>
 
       <div className="container governance">
